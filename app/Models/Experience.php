@@ -6,16 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Permission extends Model
+class Experience extends Model
 {
     use HasFactory,SoftDeletes;
 
     protected $fillable = [
-        'name',
+        'company_name',
+        'duration',
+        'type',
+        'user_id'
     ];
 
-    public function roles()
+    public function user()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsTo(User::class);
     }
 }
