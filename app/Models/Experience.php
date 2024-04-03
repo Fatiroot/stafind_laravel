@@ -11,12 +11,18 @@ class Experience extends Model
     use HasFactory,SoftDeletes;
 
     protected $fillable = [
-        'company_name',
-        'duration',
-        'type',
-        'user_id'
-    ];
+        "name",
+        "start_date",
+        "end_date",
+        "company_name",
+        "description",
+        "task",
+        "user_id",
+        "created_at",
+        "updated_at",
+        "deleted_at",
 
+    ];
     public function user()
     {
         return $this->belongsTo(User::class);

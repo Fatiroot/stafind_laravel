@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('offer_user', function (Blueprint $table) {
             $table->id();
-            $table->date('application_date');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade') ->onDelete('cascade');
-            $table->foreignId('offre_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->text('description');
-            $table->integer('status')->default(1);
+            $table->boolean('status')->default(0);
+            $table->unsignedBigInteger('offer_id');
+            $table->foreign('offer_id')->references('id')->on('offers')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

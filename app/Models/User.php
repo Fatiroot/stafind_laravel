@@ -8,10 +8,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable,SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable,SoftDeletes,InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -19,50 +21,45 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'skills',
-        'phone',
-        'address',
-        'description',
-        'status',
-    ];
-    public const STATUS_LABELS = [
-        '1'=> 'Pending',
-        '2'=> 'Accepted',
-        '3'=> 'Banned',
-    ];
-
-    public function getStatus(){
-        return self::STATUS_LABELS[$this->status];
-    }
-
-
-    public function roles()
-    {
+    'fullname',
+    'email',
+    'password',
+    'address',
+    'phone',
+    'status',
+    'company_id',
+    'created_at',
+    'updated_at',
+    'deleted_at',
+];
+     public function roles()
+     {
         return $this->belongsToMany(Role::class);
-    }
+     }
+     public function hasRole($roleName)
+     {
+         return $this->roles->contains('name', $roleName);
+     }
 
-    public function offers()
-    {
-        return $this->belongsToMany(Offer::class);
-    }
-
-    public function experiences()
-    {
-        return $this->hasMany(Experience::class);
-    }
-    
-    public function education()
-    {
-        return $this->hasMany(Education::class);
-    }
-
-    public function company()
-    {
+      public function company()
+     {
         return $this->belongsTo(Company::class);
-    }
+      }
+
+      public function formations()
+     {
+        return $this->belongsToMany(Formation::class);
+      }
+
+      public function experiences()
+     {
+        return $this->hasMany(Experience::class);
+      }
+
+      public function Skills()
+     {
+        return $this->belongsToMany(Skill::class);
+      }
 
 
     /**

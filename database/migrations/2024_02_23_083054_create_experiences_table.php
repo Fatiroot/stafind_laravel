@@ -15,12 +15,16 @@ return new class extends Migration
     {
         Schema::create('experiences', function (Blueprint $table) {
             $table->id();
-             $table->string('company_name');
-            $table->string('duration');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->text('description')->nullable();
-            $table->timestamps();
+            $table->string('name');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('company_name');
+            $table->text('description');
+            $table->string('task');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 

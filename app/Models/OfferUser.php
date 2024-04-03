@@ -10,19 +10,20 @@ class OfferUser extends Model
     use HasFactory;
 
     protected $fillable=[
-        'application_date',
-        'description',
-        'offer_id',
-        'user_id',
+        "user_id",
+        "status",
+        "offer_id",
+        "created_at",
+        "updated_at",
+        "deleted_at",
     ];
+    public function offer()
+    {
+        return $this->belongsTo(Offer::class);
+    }
 
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-    
-    public function offer()
-    {
-        return $this->belongsTo(Offer::class);
     }
 }
