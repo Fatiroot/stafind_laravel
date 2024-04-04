@@ -53,5 +53,6 @@ Route::resource('adminCompany', AdminComController::class);
 Route::resource('adminCity', AdminCityController::class);
 Route::resource('adminDomain', AdminDomainController::class);
 Route::resource('adminUser', AdminUserController::class);
+Route::put('adminUser', [AdminUserController::class,'updateStatus'])->name('updateStatus');
 Route::resource('representative', RepresentativeController::class);
 Route::resource('representativeCompany', RepresentativeComController::class);

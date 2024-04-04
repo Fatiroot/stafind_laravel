@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CityUpdateRequest;
 use App\Models\City;
-use App\Models\Domain;
 use Illuminate\Http\Request;
 
 class CityController extends Controller
@@ -12,9 +12,8 @@ class CityController extends Controller
     public function index()
     {
         $cities = City ::all();
-        $domains = Domain ::all();
 
-        return view('admin.city', compact(['cities','domains']));
+        return view('admin.city', compact('cities'));
     }
 
     public function store(Request $request)
@@ -23,5 +22,23 @@ class CityController extends Controller
         return redirect()->back()->with('success', 'City created successfuly');
 
     }
+
+    public function update(CityUpdateRequest $request, City $city)
+    {
+        $city->update($request->all());
+
+        return redirect()->back()->with('success', 'City updated successfuly');
+    }
+
+
+    public function destroy($id)
+    {
+        $city = City::findOrFail($id);
+        $city->delete();
+        return redirect()->back()->with('success', 'City deleted successfully');
+   }
+
+
+
 
 }

@@ -15,4 +15,18 @@ class UserController extends Controller
         return view('admin.user', compact('users'));
     }
 
+
+    public function updateStatus(Request $request, User $user)
+    {
+        if ($user) {
+            if ($user->status) {
+                $user->status = 0;
+            } else {
+                $user->status = 1;
+            }
+            $user->save();
+        }
+        return redirect()->back()->with('success', ' Status changes successfuly');
+    }
+
 }
