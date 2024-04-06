@@ -1,6 +1,6 @@
 <x-dashboard>
     <div class="bg-dark rounded-3xl pt-10 mb-5">
-        <h1 class="text-white text-3xl font-bold mb-10 pt-5 text-center">Edit Company</h1>
+        <h1 class="text-dark text-3xl font-bold mb-10 pt-5 text-center">Edit Company</h1>
 
         <form method="POST" action="{{ route('representativeCompany.update', $company->id) }}"
             enctype="multipart/form-data"class="w-full max-w-xl mx-auto bg-white rounded shadow-xl relative py-4">
@@ -19,16 +19,19 @@
                 <div class="bg-gray-200 rounded py-2">
 
                     <div class="mb-1 p-2">
+                        <label for="name">Company name</label>
                         <input id="name" name="name" type="text" placeholder="company name"
                             value="{{ $company->name }}"
                             class="w-full h-10 px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-gray-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none focus:bg-white">
                     </div>
                     <div class="mb-1 p-2">
+                        <label for="localisation">Localisation</label>
                         <input id="localisation" name="location" type="text" placeholder="location"
                             value="{{ $company->location }}"
                             class="w-full h-10 px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-gray-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none focus:bg-white">
                     </div>
                     <div class="mb-1 p-2">
+                        <label for="description">Description</label>
                         <input id="description" name="description" type="text" placeholder="company description"
                             value="{{ $company->description }}"
                             class="w-full h-10 px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-gray-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none focus:bg-white">

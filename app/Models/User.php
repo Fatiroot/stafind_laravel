@@ -60,6 +60,10 @@ class User extends Authenticatable implements HasMedia
      {
         return $this->belongsToMany(Skill::class);
       }
+      public function representaiveOffers()
+      {
+          return $this->hasMany(Offer::class);
+      }
 
 
     /**

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->date('duration');
             $table->double('salary');
             $table->string('localisation');
+            $table->integer('status')->default(1);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('domain_id');

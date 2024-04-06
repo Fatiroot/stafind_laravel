@@ -7,8 +7,7 @@ use App\Http\Controllers\Admin\CityController as AdminCityController;//allias
 use App\Http\Controllers\Admin\DomainController as AdminDomainController;//allias
 use App\Http\Controllers\Admin\UserController as AdminUserController;//allias
 use App\Http\Controllers\Representative\UserController as RepresentativeController;//allias
-
-
+use App\Http\Controllers\Representative\OfferController as RepresentativeOfferController;//allias
 use App\Http\Controllers\Representative\CompanyController as RepresentativeComController;//allias
 
 
@@ -54,5 +53,11 @@ Route::resource('adminCity', AdminCityController::class);
 Route::resource('adminDomain', AdminDomainController::class);
 Route::resource('adminUser', AdminUserController::class);
 Route::put('adminUser', [AdminUserController::class,'updateStatus'])->name('updateStatus');
+
+
+
 Route::resource('representative', RepresentativeController::class);
+Route::put('/representative/{userId}/change-status', [RepresentativeController::class, 'changeStatus'])->name('representative.changeStatus');
+Route::get('/representativeEntr', [RepresentativeController::class, 'entrepreneur'])->name('representativeEntr');
 Route::resource('representativeCompany', RepresentativeComController::class);
+Route::resource('representativeOffer', RepresentativeOfferController::class);

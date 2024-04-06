@@ -119,7 +119,7 @@
                                     </span>
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    <form action="" method="POST">
+                                    <form action="{{ route('representative.changeStatus', $user->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
                                         <button type="submit"
