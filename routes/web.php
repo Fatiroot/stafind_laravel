@@ -9,6 +9,10 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;//allias
 use App\Http\Controllers\Representative\UserController as RepresentativeController;//allias
 use App\Http\Controllers\Representative\OfferController as RepresentativeOfferController;//allias
 use App\Http\Controllers\Representative\CompanyController as RepresentativeComController;//allias
+use App\Http\Controllers\Representative\ExperienceController as RepresentativeExpController;//allias
+use App\Http\Controllers\Representative\FormationController as RepresentativeForController;//allias
+use App\Http\Controllers\Representative\SkillController as RepresentativeSkillController;//allias
+
 
 
 /*
@@ -61,3 +65,7 @@ Route::put('/representative/{userId}/change-status', [RepresentativeController::
 Route::get('/representativeEntr', [RepresentativeController::class, 'entrepreneur'])->name('representativeEntr');
 Route::resource('representativeCompany', RepresentativeComController::class);
 Route::resource('representativeOffer', RepresentativeOfferController::class);
+Route::resource('representativeExperience', RepresentativeExpController::class);
+Route::resource('representativeFormation', RepresentativeForController::class);
+Route::resource('representativeSkill', RepresentativeSkillController::class);
+

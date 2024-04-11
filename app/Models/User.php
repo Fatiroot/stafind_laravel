@@ -47,18 +47,18 @@ class User extends Authenticatable implements HasMedia
       }
 
       public function formations()
-     {
-        return $this->belongsToMany(Formation::class);
+      {
+          return $this->belongsToMany(Formation::class, 'formation-user');
+      }
+      public function experiences()
+      {
+          return $this->hasMany(Experience::class);
       }
 
-      public function experiences()
-     {
-        return $this->hasMany(Experience::class);
-      }
 
       public function Skills()
      {
-        return $this->belongsToMany(Skill::class);
+        return $this->belongsToMany(Skill::class,'skill-users');
       }
       public function representaiveOffers()
       {
