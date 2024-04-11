@@ -9,14 +9,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOfferRequest;
 use App\Http\Requests\UpdateOfferRequest;
+use Illuminate\Support\Facades\Auth;
 
 class OfferController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
         $cities = City::all();
         $domains = Domain::all();
-        $offers = Offer::all();
+        $offers = Offer::where('user_id', $user->id)->get();
         return view('representative.offer.index', compact('offers','cities','domains'));
     }
 
@@ -65,7 +67,7 @@ class OfferController extends Controller
      * Update the specified resource in storage.
      */
     public function update(UpdateOfferRequest $request, $id)
-{    
+{
     $offer = Offer::findOrFail($id);
     $offer->update($request->validated());
     return redirect()->route('representativeOffer.index')->with('success', 'Offer updated successfully.');

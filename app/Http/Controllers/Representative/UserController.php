@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Representative;
 
 use App\Models\User;
+use App\Models\Offer;
 use App\Models\Skill;
 use App\Models\Experience;
 use Illuminate\Http\Request;
@@ -18,10 +19,21 @@ class UserController extends Controller
                 $query->where('name', 'Entrepreneur');
             })
             ->where('status', 0)
-            ->where('company_id', $representative->company_id) // Filter by company_id
+            ->where('company_id', $representative->company_id)
             ->get();
-
-        return view('representative.index', compact('users'));
+         $usersCount = User::whereHas('roles', function ($query) {
+                $query->where('name', 'Entrepreneur');
+            })
+            ->where('company_id', $representative->company_id)
+            ->count();
+        $usersbannedCount = User::whereHas('roles', function ($query) {
+                $query->where('name', 'Entrepreneur');
+            })
+            ->where('status', 0)
+            ->where('company_id', $representative->company_id)
+            ->count();
+        $offerCount =Offer::where('user_id', $representative->id )->count();
+        return view('representative.index', compact(['users','usersbannedCount','usersCount','offerCount']));
     }
     public function edit()
     {

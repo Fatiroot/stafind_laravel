@@ -15,7 +15,7 @@ body {
 
 #signUpForm .form-header .stepIndicator.finish {
     font-weight: 600;
-    color: #5a67d8;
+    color: #8c71a4;
 }
 
 #signUpForm .form-header .stepIndicator::before {
@@ -27,42 +27,11 @@ body {
     z-index: 9;
     width: 20px;
     height: 20px;
-    background-color: #c3dafe;
+    background-color: #8c71a4;
     border-radius: 50%;
-    border: 3px solid #ebf4ff;
+    border: 3px solid #e1aded;
 }
 
-#signUpForm .form-header .stepIndicator.active::before {
-    background-color: #a3bffa;
-    border: 3px solid #c3dafe;
-}
-
-#signUpForm .form-header .stepIndicator.finish::before {
-    background-color: #5a67d8;
-    border: 3px solid #c3dafe;
-}
-
-#signUpForm .form-header .stepIndicator::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 8px;
-    width: 100%;
-    height: 3px;
-    background-color: #f3f3f3;
-}
-
-#signUpForm .form-header .stepIndicator.active::after {
-    background-color: #a3bffa;
-}
-
-#signUpForm .form-header .stepIndicator.finish::after {
-    background-color: #5a67d8;
-}
-
-#signUpForm .form-header .stepIndicator:last-child:after {
-    display: none;
-}
 
 #signUpForm input.invalid {
     border: 2px solid #ffaba5;
@@ -71,3 +40,5 @@ body {
 #signUpForm .step {
     display: none;
 }
+
+
