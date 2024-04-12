@@ -23,8 +23,9 @@ class CityController extends Controller
 
     }
 
-    public function update(CityUpdateRequest $request, City $city)
+    public function update(CityUpdateRequest $request, $id)
     {
+        $city = City::findOrFail($id);
         $city->update($request->all());
 
         return redirect()->back()->with('success', 'City updated successfuly');

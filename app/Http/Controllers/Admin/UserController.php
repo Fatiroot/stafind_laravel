@@ -16,17 +16,19 @@ class UserController extends Controller
     }
 
 
-    public function updateStatus(Request $request, User $user)
+    public function changeStatus(Request $request, $userId)
     {
-        if ($user) {
-            if ($user->status) {
-                $user->status = 0;
-            } else {
-                $user->status = 1;
-            }
-            $user->save();
-        }
-        return redirect()->back()->with('success', ' Status changes successfuly');
+        $user = User::findOrFail($userId);
+
+        $user->update(['status' => !$user->status]);
+
+        return redirect()->back()->with('success', 'Status changed successfully');
     }
 
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back()->with('success', 'user deleted successfully');
+   }
 }

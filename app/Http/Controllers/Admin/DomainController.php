@@ -21,8 +21,9 @@ class DomainController extends Controller
         return redirect()->back()->with('success', 'Domain created successfuly');
 
     }
-    public function update(Request $request, Domain $domain)
+    public function update(Request $request,$id)
     {
+        $domain = Domain::findOrFail($id);
         $domain->update($request->all());
 
         return redirect()->back()->with('success', 'domain updated successfuly');
