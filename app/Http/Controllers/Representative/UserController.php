@@ -56,10 +56,10 @@ class UserController extends Controller
         $user->address = $request->address;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        // if ($request->hasFile('image')) {
-        //     $user->clearMediaCollection('user');
-        //     $user->addMedia($request->file('image'))->toMediaCollection('user');
-        // }
+        if ($request->hasFile('image')) {
+            $user->clearMediaCollection('user');
+            $user->addMedia($request->file('image'))->toMediaCollection('user');
+        }
 
         $user->save();
 

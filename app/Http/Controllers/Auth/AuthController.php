@@ -85,7 +85,7 @@ class AuthController extends Controller
             } elseif ($user->hasRole('Candidate')) {
                 return redirect()->route('login');
             } elseif ($user->hasRole('Entrepreneur')) {
-                return redirect()->route('login');
+                return redirect()->route('entrepreneur.index');
             } elseif ($user->hasRole('Representative')) {
                 return redirect()->route('representative.index');
             } else {

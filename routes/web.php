@@ -8,11 +8,16 @@ use App\Http\Controllers\Admin\DomainController as AdminDomainController;//allia
 use App\Http\Controllers\Admin\UserController as AdminUserController;//allias
 use App\Http\Controllers\Admin\OfferController as AdminOfferController;//allias
 use App\Http\Controllers\Representative\UserController as RepresentativeController;//allias
+use App\Http\Controllers\Entrepreneur\UserController as EntrepreneurController;//allias
 use App\Http\Controllers\Representative\OfferController as RepresentativeOfferController;//allias
+use App\Http\Controllers\Entrepreneur\OfferController as EntrepreneurOfferController;//allias
 use App\Http\Controllers\Representative\CompanyController as RepresentativeComController;//allias
 use App\Http\Controllers\Representative\ExperienceController as RepresentativeExpController;//allias
+use App\Http\Controllers\Entrepreneur\ExperienceController as EntrepreneurExpController;//allias
 use App\Http\Controllers\Representative\FormationController as RepresentativeForController;//allias
+use App\Http\Controllers\Entrepreneur\FormationController as EntrepreneurForController;//allias
 use App\Http\Controllers\Representative\SkillController as RepresentativeSkillController;//allias
+use App\Http\Controllers\Entrepreneur\SkillController as EntrepreneurSkillController;//allias
 
 
 
@@ -70,3 +75,10 @@ Route::resource('representativeExperience', RepresentativeExpController::class);
 Route::resource('representativeFormation', RepresentativeForController::class);
 Route::resource('representativeSkill', RepresentativeSkillController::class);
 
+
+
+Route::resource('entrepreneur', EntrepreneurController::class);
+Route::resource('entrepreneurOffer', EntrepreneurOfferController::class);
+Route::resource('entrepreneurExperience', EntrepreneurExpController::class);
+Route::resource('entrepreneurFormation', EntrepreneurForController::class);
+Route::resource('entrepreneurSkill', EntrepreneurSkillController::class);

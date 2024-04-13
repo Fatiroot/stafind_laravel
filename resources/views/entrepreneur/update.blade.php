@@ -1,9 +1,9 @@
-<x-dashboard>
+<x-dashboardEntr>
 
     <!-- component -->
     <div class=" w-full my-10 mx-auto max-w-6xl">
             <div class="p-4 col-span-6 md:col-span-4" >
-                <form method="POST" action="{{ route('representative.update', $user->id) }}"
+                <form method="POST" action="{{ route('entrepreneur.update', $user->id) }}"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -141,7 +141,7 @@
                                             <!-- Modal body -->
                                             <div class="p-4 md:p-5">
                                                 <form class="space-y-4"
-                                                    action="{{ route('representativeExperience.update', $experience->id) }}"
+                                                    action="{{ route('entrepreneurExperience.update', $experience->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('PUT')
@@ -214,7 +214,7 @@
                                 </div>
                                 <!-- Delete Icon -->
                                 <form
-                                    action="{{ route('representativeExperience.destroy', $experience->id) }}"
+                                    action="{{ route('entrepreneurExperience.destroy', $experience->id) }}"
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -274,7 +274,7 @@
                             </div>
                             <!-- Modal body -->
                             <div class="p-4 md:p-5">
-                                <form class="space-y-4" action="{{ route('representativeExperience.store') }}"
+                                <form class="space-y-4" action="{{ route('entrepreneurExperience.store') }}"
                                     method="POST">
                                     @csrf
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
@@ -411,7 +411,7 @@
                                         <!-- Modal body -->
                                         <div class="p-4 md:p-5">
                                             <form class="space-y-4"
-                                                action="{{ route('representativeFormation.update', $formation->id) }}"
+                                                action="{{ route('entrepreneurFormation.update', $formation->id) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('PUT')
@@ -468,7 +468,7 @@
                             </div>
                             <!-- Delete Icon -->
                             <form
-                                action="{{ route('representativeFormation.destroy', $formation->id) }}"
+                                action="{{ route('entrepreneurFormation.destroy', $formation->id) }}"
                                 method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -521,7 +521,7 @@
                         </div>
                         <!-- Modal body -->
                         <div class="p-4 md:p-5">
-                            <form class="space-y-4" action="{{ route('representativeFormation.store') }}"
+                            <form class="space-y-4" action="{{ route('entrepreneurFormation.store') }}"
                                 method="POST">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ $user->id }}">
@@ -637,7 +637,7 @@
                                             <!-- Modal body -->
                                             <div class="p-4 md:p-5">
                                                 <form class="space-y-4"
-                                                    action="{{ route('representativeSkill.update', $skill->id) }}"
+                                                    action="{{ route('entrepreneurSkill.update', $skill->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('PUT')
@@ -663,7 +663,7 @@
                                 </div>
                                 <!-- Delete Icon -->
                                 <form
-                                    action="{{ route('representativeSkill.destroy', $skill->id) }}"
+                                    action="{{ route('entrepreneurSkill.destroy', $skill->id) }}"
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -709,13 +709,13 @@
                             </div>
                             <!-- Modal body -->
                             <div class="p-4 md:p-5">
-                                <form class="space-y-4" action="{{ route('representativeSkill.store') }}"
+                                <form class="space-y-4" action="{{ route('entrepreneurSkill.store') }}"
                                     method="POST">
                                     @csrf
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                                     <div>
                                         <select name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required>
-                                            <option value="{{ $skill->name }}">Select a skill</option>
+                                            <option value="">Select a skill</option>
                                             @foreach ($allSkills as $skill)
                                                 <option value="{{ $skill->name }}">{{ $skill->name }}</option>
                                             @endforeach

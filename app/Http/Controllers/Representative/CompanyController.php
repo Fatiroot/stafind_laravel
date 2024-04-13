@@ -9,6 +9,11 @@ use App\Http\Requests\CompanyUpdateRequest;
 
 class CompanyController extends Controller
 {
+    public function index(){
+        $user = auth()->user();
+        $company = Company::Where('id', $user->company_id)->first();
+        return view('entrepreneur.company.index', compact('company'));
+    }
     public function edit()
     {
         $user = auth()->user();
