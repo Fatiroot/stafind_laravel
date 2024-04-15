@@ -18,8 +18,7 @@ use App\Http\Controllers\Representative\FormationController as RepresentativeFor
 use App\Http\Controllers\Entrepreneur\FormationController as EntrepreneurForController;//allias
 use App\Http\Controllers\Representative\SkillController as RepresentativeSkillController;//allias
 use App\Http\Controllers\Entrepreneur\SkillController as EntrepreneurSkillController;//allias
-
-
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,9 +47,12 @@ Route::post('register',[AuthController::class, 'register'])->name('register');
 Route::get('signIn',[AuthController::class, 'SignIn'])->name('SignIn');
 Route::post('login',[AuthController::class, 'login'])->name('login');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::resource('/', HomeController::class);
 
 
 
