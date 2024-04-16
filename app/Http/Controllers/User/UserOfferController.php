@@ -2,13 +2,24 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\City;
 use App\Models\Offer;
+use App\Models\Domain;
+use App\Models\Company;
 use App\Models\OfferUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class UserOfferController extends Controller
 {
+    public function index()
+    {
+        $companies = Company::take(4)->get();
+        $cities = City::all();
+        $domains = Domain::all();
+        $offers = Offer::where('status', 0)->get();
+        return view('stages_post', compact('offers','cities','domains','companies'));
+    }
 
     public function store(Request $request)
     {

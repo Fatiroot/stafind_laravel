@@ -14,8 +14,10 @@ class HomeController extends Controller
     {
         $companies = Company::take(4)->get();
         $cities = City::all();
-        $domains = Domain::withCount('offers')->get(); // This will include the count of offers for each domain
-        $offers = Offer::all();
+        $domains = Domain::withCount(['offers' => function ($query) {
+            $query->where('status', 0); 
+        }])->get();
+                $offers = Offer::where('status', 0)->get();
         return view('welcome', compact('offers','cities','domains','companies'));
     }
 }

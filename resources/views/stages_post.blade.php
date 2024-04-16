@@ -12,7 +12,6 @@
           class="number" data-number="850000">0</span> great Stage offers you deserve!</p>
       <h1 class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Your Dream <br><span>Stage is
           Waiting</span></h1>
-
       <div class="ftco-search">
         <div class="row">
           <div class="col-md-12 nav-link-wrap">
@@ -127,75 +126,6 @@
   </div>
  </div>
 </div>
-  <section class="ftco-section services-section bg-light">
-    <div class="container">
-      <div class="row d-flex">
-        <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-          <div class="media block-6 services d-block">
-            <div class="icon"><span class="flaticon-resume"></span></div>
-            <div class="media-body">
-              <h3 class="heading mb-3">Search Millions of Stages</h3>
-              <p>A small river named Duden flows by their place and supplies.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-          <div class="media block-6 services d-block">
-            <div class="icon"><span class="flaticon-collaboration"></span></div>
-            <div class="media-body">
-              <h3 class="heading mb-3">Easy To Manage Stages</h3>
-              <p>A small river named Duden flows by their place and supplies.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-          <div class="media block-6 services d-block">
-            <div class="icon"><span class="flaticon-promotions"></span></div>
-            <div class="media-body">
-              <h3 class="heading mb-3">Top Careers</h3>
-              <p>A small river named Duden flows by their place and supplies.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-          <div class="media block-6 services d-block">
-            <div class="icon"><span class="flaticon-employee"></span></div>
-            <div class="media-body">
-              <h3 class="heading mb-3">Search Expert Candidates</h3>
-              <p>A small river named Duden flows by their place and supplies.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="ftco-section ftco-counter">
-    <div class="container">
-      <div class="row justify-content-center mb-5 pb-3">
-        <div class="col-md-7 heading-section text-center ftco-animate">
-          <span class="subheading">Categories work wating for you</span>
-          <h2 class="mb-4"><span>Current</span> Stage Posts</h2>
-        </div>
-      </div>
-      <div class="row">
-        @foreach($domains as $domain)
-            <div class="col-lg-3 col-md-4 col-sm-6 ftco-animate">
-                <ul class="category">
-                    <li style="list-style: none;">
-                        <a href="#" style="text-decoration: none; color: #333; display: block; padding: 10px; border-radius: 5px; ">
-                            <span style="font-weight: bold;">{{ $domain->name }} :</span>
-                            <span style="color: #41dc65; margin-left: 5px;">{{ $domain->offers_count }}</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        @endforeach
-    </div>
-
-    </div>
-  </section>
-
   <section class="ftco-section bg-light">
     <div class="container">
       <div class="row justify-content-center mb-5 pb-3">
@@ -254,34 +184,6 @@
       </div>
     </div>
   </section>
-  <section class="ftco-section bg-light">
-    <div class="container">
-      <div class="row justify-content-center mb-5 pb-3">
-        <div class="col-md-7 heading-section text-center ftco-animate">
-          <span class="subheading">Our Companies</span>
-          <h2><span>Recent</span> Companies</h2>
-        </div>
-      </div>
-      <div class="row d-flex">
-        @foreach ($companies as $company )
-        <div class="col-md-3 d-flex ftco-animate">
-          <div class="blog-entry align-self-stretch">
-            <img id="preview-image"  class="block-20"
-            src="{{ $company->getFirstMediaUrl('company') }}" alt="Company Logo" style="width: 200px; height:400px">
-            <div class="text mt-3">
-              <div class="meta mb-2">
-                <div><a href="#">{{ $company->name }}</a></div>
-              </div>
-              <h3 class="heading "><a href="#">{{ $company->description }}</a>
-              </h3>
-              <p>{{ $company->location }}</p>
-            </div>
-          </div>
-        </div>
-        @endforeach
 
-      </div>
-    </div>
-  </section>
   @endsection
 

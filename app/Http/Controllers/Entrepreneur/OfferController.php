@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Entrepreneur;
 use App\Models\City;
 use App\Models\Offer;
 use App\Models\Domain;
+use App\Models\OfferUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -84,5 +85,14 @@ class OfferController extends Controller
         $offer->delete();
 
         return redirect()->route('entrepreneurOffer.index')->with('success', 'Offer deleted successfully.');
+    }
+
+
+    public function getRequests( $offerId){
+        $offer = Offer::findOrFail($offerId);
+        $requests = OfferUser::with('user')->whereHas('offer', function($query) use($offer){
+            $query->where('id',$offer->id);
+        })->get();
+        return view('entrepreneur.offer.requests', compact('requests'));
     }
 }

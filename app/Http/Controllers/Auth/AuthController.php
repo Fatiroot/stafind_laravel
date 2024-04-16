@@ -9,6 +9,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use \App\Http\Requests\LoginRequest;
 
 class AuthController extends Controller
 {
@@ -65,7 +66,7 @@ class AuthController extends Controller
     }
 
 
-    public function login(\App\Http\Requests\LoginRequest $request)
+    public function login(LoginRequest $request)
     {
         // Attempt to authenticate the user
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
@@ -85,7 +86,11 @@ class AuthController extends Controller
             } elseif ($user->hasRole('Candidate')) {
                 return redirect()->route('home.index');
             } elseif ($user->hasRole('Entrepreneur')) {
-                return redirect()->route('entrepreneur.index');
+                if ($user->status === 1) {
+                    return redirect()->route('entrepreneur.index');
+                } else {
+                    return redirect()->route('login');
+                }
             } elseif ($user->hasRole('Representative')) {
                 return redirect()->route('representative.index');
             } else {

@@ -48,9 +48,9 @@ Route::post('register',[AuthController::class, 'register'])->name('register');
 Route::get('signIn',[AuthController::class, 'SignIn'])->name('SignIn');
 Route::post('login',[AuthController::class, 'login'])->name('login');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('about', function () {
+    return view('about');
+});
 
 
 Route::resource('home', HomeController::class);
@@ -92,3 +92,5 @@ Route::resource('entrepreneurOffer', EntrepreneurOfferController::class);
 Route::resource('entrepreneurExperience', EntrepreneurExpController::class);
 Route::resource('entrepreneurFormation', EntrepreneurForController::class);
 Route::resource('entrepreneurSkill', EntrepreneurSkillController::class);
+Route::get('/requests/{offerId}', [EntrepreneurOfferController::class, 'getRequests'])->name('requests');
+

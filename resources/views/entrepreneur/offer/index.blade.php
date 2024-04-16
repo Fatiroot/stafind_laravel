@@ -42,6 +42,10 @@
                                         class="block px-4 py-2 text-md font-semibold text-yellow-700  dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit
                                         offer</a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('requests',$offer->id) }}"
+                                        class="block px-4 py-2 text-md font-semibold text-blue-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Requests</a>
+                                </li>
                             </ul>
                             <div class="py-2">
                                 <form action="{{ route('entrepreneurOffer.destroy',['entrepreneurOffer'=> $offer->id]) }}" method="post" class="hover:bg-gray-100">

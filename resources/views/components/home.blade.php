@@ -25,9 +25,9 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="Stage-post.html" class="nav-link">New Stages</a></li>
-            <li class="nav-item"><a href="Stage-post.html" class="nav-link">Find Stages</a></li>
+            <li class="nav-item "><a href="home" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="{{ route('UserOffer.index') }} "class="nav-link">Find Stages</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">Sample</a></li>
 
             @auth
@@ -47,7 +47,7 @@
   </nav>
   <!-- END nav -->
 
- 
+
   @yield('content')
   <section class="ftco-section-parallax">
     <div class="parallax-img d-flex align-items-center">
@@ -164,6 +164,8 @@
   <script src="{{ asset('js/scrollax.min.js') }}"></script>
   </script>
   <script src="{{ asset('js/main.js') }}"></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
 
 </body>
 
