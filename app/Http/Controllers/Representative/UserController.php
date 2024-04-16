@@ -68,13 +68,15 @@ class UserController extends Controller
 
 
 
-    public function changeStatus(Request $request, $userId)
+    public function changeStatus(Request $request, $Id)
     {
-        $user = User::findOrFail($userId);
-        $user->status = 1;
-        $user->save();
-        return back()->with('success', 'User status changed successfully.');
+        $user =User::findOrFail($Id);
+
+        $user->update(['status' => !$user->status]);
+
+        return redirect()->back()->with('success', 'Status changed successfully');
     }
+
     public function entrepreneur()
     {
         $representative = Auth::user();

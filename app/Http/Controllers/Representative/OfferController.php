@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Representative;
 use App\Models\City;
 use App\Models\Offer;
 use App\Models\Domain;
+use App\Models\OfferUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreOfferRequest;
 use App\Http\Requests\UpdateOfferRequest;
-use Illuminate\Support\Facades\Auth;
 
 class OfferController extends Controller
 {
@@ -85,4 +86,23 @@ class OfferController extends Controller
 
         return redirect()->route('representativeOffer.index')->with('success', 'Offer deleted successfully.');
     }
+
+    public function getRequests( $offerId){
+        $offer = Offer::findOrFail($offerId);
+        $requests = OfferUser::with('user')->whereHas('offer', function($query) use($offer){
+            $query->where('id',$offer->id);
+        })->get();
+        return view('representative.offer.requests', compact('requests'));
+    }
+
+
+    public function changeStatus(Request $request, $Id)
+    {
+        $request =OfferUser::findOrFail($Id);
+
+        $request->update(['status' => !$request->status]);
+
+        return redirect()->back()->with('success', 'Status changed successfully');
+    }
+
 }

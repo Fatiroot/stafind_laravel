@@ -19,6 +19,7 @@ use App\Http\Controllers\Entrepreneur\FormationController as EntrepreneurForCont
 use App\Http\Controllers\Representative\SkillController as RepresentativeSkillController;//allias
 use App\Http\Controllers\Entrepreneur\SkillController as EntrepreneurSkillController;//allias
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\User\UserOfferController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +53,10 @@ Route::post('login',[AuthController::class, 'login'])->name('login');
 // });
 
 
-Route::resource('/', HomeController::class);
+Route::resource('home', HomeController::class);
+
+
+Route::resource('UserOffer', UserOfferController::class);
 
 
 
@@ -76,6 +80,10 @@ Route::resource('representativeOffer', RepresentativeOfferController::class);
 Route::resource('representativeExperience', RepresentativeExpController::class);
 Route::resource('representativeFormation', RepresentativeForController::class);
 Route::resource('representativeSkill', RepresentativeSkillController::class);
+Route::get('/requests/{offerId}', [RepresentativeOfferController::class, 'getRequests'])->name('requests');
+Route::put('/requests/{Id}/change-status', [RepresentativeOfferController::class, 'changeStatus'])->name('RequestchangeStatus');
+
+
 
 
 

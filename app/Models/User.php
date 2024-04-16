@@ -66,6 +66,13 @@ class User extends Authenticatable implements HasMedia
       }
 
 
+    public function offers()
+    {
+        return $this->belongsToMany(Offer::class, 'offer_users');
+    }
+
+
+
     /**
      * The attributes that should be hidden for serialization.
      *

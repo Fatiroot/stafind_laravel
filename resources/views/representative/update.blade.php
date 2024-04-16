@@ -715,7 +715,7 @@
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                                     <div>
                                         <select name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required>
-                                            <option value="{{ $skill->name }}">Select a skill</option>
+                                            <option value="">Select a skill</option>
                                             @foreach ($allSkills as $skill)
                                                 <option value="{{ $skill->name }}">{{ $skill->name }}</option>
                                             @endforeach
