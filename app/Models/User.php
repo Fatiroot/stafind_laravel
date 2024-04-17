@@ -71,6 +71,11 @@ class User extends Authenticatable implements HasMedia
         return $this->belongsToMany(Offer::class, 'offer_users');
     }
 
+    public function offer()
+    {
+        return $this->belongsToMany(OfferUser::class, 'offer_users');
+    }
+
 
 
     /**

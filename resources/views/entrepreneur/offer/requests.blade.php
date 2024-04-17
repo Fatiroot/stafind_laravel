@@ -49,11 +49,11 @@
 
                         <td class="px-6 py-4">
                             <!-- Modal toggle -->
-                            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                            {{-- <button data-modal-target="default-modal" data-modal-toggle="default-modal"
                                 class="text-blue-800  hover:bg-blue-200 rounded-lg   font-medium  text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                 type="button">
                                 See Application
-                            </button>
+                            </button> --}}
 
                             <!-- Main modal -->
                             <div id="default-modal" tabindex="-1" aria-hidden="true"
