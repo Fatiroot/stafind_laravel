@@ -49,7 +49,7 @@
                                 @endforeach
                             </td>
                             <td style="width: 10%; text-align: center;">
-                                <form method="POST" action="{{ route('representative.changeStatus', $user->id) }}" id="update-user-form-{{ $user->id }}">
+                                <form method="POST" action="{{ route('admin.changeStatus', $user->id) }}" id="update-user-form-{{ $user->id }}">
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="btn btn-link text-decoration-none  ">

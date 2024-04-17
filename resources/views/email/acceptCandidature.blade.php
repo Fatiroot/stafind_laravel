@@ -6,7 +6,7 @@
     <title>Notification</title>
 </head>
 <body>
-    <h1>Subject: Internship Confirmation - Acceptance</h1>
+    <h1 style="color: rgb(232, 29, 29)">Subject: Internship Confirmation - Acceptance</h1>
 
     @if ($request->user)
         <!-- Check if $request->user is not null -->
@@ -32,8 +32,8 @@
         <p>Thank you once again for this opportunity, and I am eager to get started.</p>
         <p>Best regards,</p>
         <p>{{ $request->user->fullname }}</p>
-        <p>{{ $request->user->phone }}</p>
-        <p>{{ $request->user->address }}</p>
+        <p style="color: rgb(91, 190, 232)">{{ $request->user->phone }}</p>
+        <p style="color:gray">{{ $request->user->address }}</p>
     @else
         <p>User details not available.</p>
     @endif

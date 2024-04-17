@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Entrepreneur;
 use App\Models\User;
 use App\Models\Offer;
 use App\Models\Skill;
+use App\Models\OfferUser;
 use App\Models\Experience;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,7 +23,12 @@ class UserController extends Controller
         ->get();
 
         $offerCount =Offer::where('user_id', $Entrepreneur->id )->count();
-        return view('entrepreneur.index', compact(['users','offerCount']));
+
+        $requestCount = OfferUser::whereHas('offer', function ($query) use ($Entrepreneur) {
+            $query->where('user_id', $Entrepreneur->id);
+        })
+        ->count();
+        return view('entrepreneur.index', compact(['users','offerCount','requestCount']));
     }
     public function edit()
     {

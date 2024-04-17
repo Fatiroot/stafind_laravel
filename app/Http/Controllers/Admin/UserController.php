@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Mail\MailUserBanned;
 use Illuminate\Http\Request;
+use App\Mail\MailUnbanneUser;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -16,13 +19,22 @@ class UserController extends Controller
     }
 
 
-    public function changeStatus(Request $request, $userId)
+    public function changeStatus($Userid)
     {
-        $user = User::findOrFail($userId);
+        $user = User::findOrFail($Userid);
 
-        $user->update(['status' => !$user->status]);
+        if ($user->status == 1) {
+            $user->update(['status' => 0]);
+            Mail::to($user->email)->send(new MailUserBanned($user));
+            return redirect()->back()->with('success', 'status changed  successfully');
 
-        return redirect()->back()->with('success', 'Status changed successfully');
+        } elseif ($user->status == 0) {
+            $user->update(['status' => 1]);
+            Mail::to($user->email)->send(new MailUnbanneUser($user));
+            return redirect()->back()->with('success', 'status changed  successfully');
+
+        }
+
     }
 
     public function destroy($id)

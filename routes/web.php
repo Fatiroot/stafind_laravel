@@ -42,11 +42,11 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 
-Route::get('signUp',[AuthController::class, 'SignUp'])->name('SignUp');
-Route::post('register',[AuthController::class, 'register'])->name('register');
+// Route::get('signUp',[AuthController::class, 'SignUp'])->name('SignUp');
+// Route::post('register',[AuthController::class, 'register'])->name('register');
 
-Route::get('signIn',[AuthController::class, 'SignIn'])->name('SignIn');
-Route::post('login',[AuthController::class, 'login'])->name('login');
+// Route::get('signIn',[AuthController::class, 'SignIn'])->name('SignIn');
+// Route::post('login',[AuthController::class, 'login'])->name('login');
 
 Route::get('about', function () {
     return view('about');
@@ -65,10 +65,13 @@ Route::resource('UserOffer', UserOfferController::class);
 Route::resource('adminCompany', AdminComController::class);
 Route::resource('adminCity', AdminCityController::class);
 Route::resource('adminOffer', AdminOfferController::class);
-Route::put('/admin/{offerId}/change-status', [AdminOfferController::class, 'changeStatus'])->name('admin.changeStatus');
 Route::resource('adminDomain', AdminDomainController::class);
 Route::resource('adminUser', AdminUserController::class);
 Route::put('adminUser', [AdminUserController::class,'updateStatus'])->name('updateStatus');
+Route::put('adminUser/{Id}/change-status', [AdminUserController::class, 'changeStatus'])->name('admin.changeStatus');
+Route::put('adminOffer/{Id}/change-status', [AdminOfferController::class, 'changeStatus'])->name('adminOffer.changeStatus');
+
+
 
 
 
@@ -80,7 +83,7 @@ Route::resource('representativeOffer', RepresentativeOfferController::class);
 Route::resource('representativeExperience', RepresentativeExpController::class);
 Route::resource('representativeFormation', RepresentativeForController::class);
 Route::resource('representativeSkill', RepresentativeSkillController::class);
-Route::get('/requests/{offerId}', [RepresentativeOfferController::class, 'getRequests'])->name('requests');
+Route::get('/requestsRep/{offerId}', [RepresentativeOfferController::class, 'getRequests'])->name('requestsRep');
 Route::put('/requests/{Id}/change-status', [RepresentativeOfferController::class, 'changeStatus'])->name('RequestchangeStatus');
 
 
@@ -92,5 +95,5 @@ Route::resource('entrepreneurOffer', EntrepreneurOfferController::class);
 Route::resource('entrepreneurExperience', EntrepreneurExpController::class);
 Route::resource('entrepreneurFormation', EntrepreneurForController::class);
 Route::resource('entrepreneurSkill', EntrepreneurSkillController::class);
-Route::get('/requests/{offerId}', [EntrepreneurOfferController::class, 'getRequests'])->name('requests');
+Route::get('/requestsEntr/{offerId}', [EntrepreneurOfferController::class, 'getRequests'])->name('requestsEntr');
 

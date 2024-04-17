@@ -92,8 +92,11 @@ class AuthController extends Controller
                     return redirect()->route('login');
                 }
             } elseif ($user->hasRole('Representative')) {
-                return redirect()->route('representative.index');
-            } else {
+                if ($user->status === 1) {
+                    return redirect()->route('representative.index');
+                } else {
+                    return redirect()->route('login');
+                }            } else {
                 // If none of the specified roles match, redirect to the login page
                 return redirect()->route('login');
             }

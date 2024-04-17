@@ -50,7 +50,7 @@
                                 <span class=" text-xs font-weight-bold  mb-0">{{ $offer->user->fullname}}</span>
                             </td>
                             <td style="width: 10%; text-align: center;">
-                                <form method="POST" action="{{ route('admin.changeStatus', $offer->id) }}" id="update-offer-form-{{ $offer->id }}">
+                                <form method="POST" action="{{ route('adminOffer.changeStatus', $offer->id) }}" id="update-offer-form-{{ $offer->id }}">
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="btn btn-link text-decoration-none  ">

@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Representative;
 use App\Models\User;
 use App\Models\Offer;
 use App\Models\Skill;
+use App\Models\OfferUser;
 use App\Models\Experience;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\MailConfirmationUser;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -33,7 +36,13 @@ class UserController extends Controller
             ->where('company_id', $representative->company_id)
             ->count();
         $offerCount =Offer::where('user_id', $representative->id )->count();
-        return view('representative.index', compact(['users','usersbannedCount','usersCount','offerCount']));
+
+        $requestCount = OfferUser::whereHas('offer', function ($query) use ($representative) {
+            $query->where('user_id', $representative->id);
+        })
+        ->count();
+
+        return view('representative.index', compact(['users','usersbannedCount','usersCount','offerCount','requestCount']));
     }
     public function edit()
     {
@@ -68,11 +77,12 @@ class UserController extends Controller
 
 
 
-    public function changeStatus(Request $request, $Id)
+    public function changeStatus( $Id)
     {
         $user =User::findOrFail($Id);
 
-        $user->update(['status' => !$user->status]);
+        $user->update(['status' => 1]);
+        Mail::to($user->email)->send(new MailConfirmationUser($user));
 
         return redirect()->back()->with('success', 'Status changed successfully');
     }
