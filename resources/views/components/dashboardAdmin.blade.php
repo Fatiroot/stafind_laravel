@@ -176,7 +176,7 @@
                   <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
                   <input type="text" class="form-control" placeholder="Type here...">
                 </div>
-                <button type="button" class="btn btn-outline-primary btn-sm mb-0 me-3 mx-3 text-primary text-xxs" >Search</button>
+                <button type="button" class="btn btn-outline-primary btn-sm mb-0 me-3 mx-3 text-primary text-xxs"ype="button" class="btn btn-outline-primary btn-sm mb-0 me-3 mx-3 text-primary text-xxs" >Search</button>
             </div>
           </ol>
         </nav>
@@ -190,11 +190,11 @@
                  <img src="{{ Auth::user()->getFirstMediaUrl('user')}}" class="avatar me-3" alt="company" style="width: 30px; height: 30px;">
               </a>
             </li>
-            <li>
+            <li  class="nav-item d-flex align-items-center">
                 <form method="POST" action="{{ route('logout') }}" id="logoutForm"
                 class="flex items-center">
                 @csrf
-                <button style="background-color: white ; border:none;">Log out</button>
+                <button type="button" class="btn btn-outline-primary btn-sm mb-0 me-3 mx-2 text-primary text-xxs">Log out</button>
            </form>
             </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
