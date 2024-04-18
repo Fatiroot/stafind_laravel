@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\City;
 use App\Models\User;
+use App\Models\Offer;
+use App\Models\Domain;
+use App\Models\Company;
 use App\Mail\MailUserBanned;
 use Illuminate\Http\Request;
 use App\Mail\MailUnbanneUser;
@@ -43,4 +47,14 @@ class UserController extends Controller
         $user->delete();
         return redirect()->back()->with('success', 'user deleted successfully');
    }
+
+   public function showStatistic(){
+    $offerCount =Offer::count();
+    $userCount =User::count();
+    $cityCount =City::count();
+    $domainCount =Domain::count();
+    $companyCount =Company::count();
+
+    return view('admin.index', compact(['offerCount','userCount','cityCount','domainCount','companyCount']));
+}
 }
