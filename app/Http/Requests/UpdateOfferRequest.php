@@ -25,7 +25,7 @@ class UpdateOfferRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'duration' => 'required|date',
+            'duration' => 'required|integer|min:1',
             'salary' => 'required|numeric',
             'localisation' => 'required|string|max:255',
             'description' => 'required|string',

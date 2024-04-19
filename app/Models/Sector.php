@@ -12,6 +12,6 @@ class Sector extends Model
 
     public function companies()
     {
-        return $this->belongsToMany(Company::class);
+        return $this->belongsToMany(Company::class,'company-sector');
     }
 }

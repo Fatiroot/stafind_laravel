@@ -194,7 +194,7 @@
                 <form method="POST" action="{{ route('logout') }}" id="logoutForm"
                 class="flex items-center">
                 @csrf
-                <button type="button" class="btn btn-outline-primary btn-sm mb-0 me-3 mx-2 text-primary text-xxs">Log out</button>
+                <button class="btn btn-outline-primary btn-sm mb-0 me-3 mx-2 text-primary text-xxs">Log out</button>
            </form>
             </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">

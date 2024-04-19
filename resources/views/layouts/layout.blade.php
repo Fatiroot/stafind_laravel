@@ -23,9 +23,48 @@
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+ <!-- Include Select2 CSS -->
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+ <!-- Include Select2 JS -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
 </head>
 
 <body class="">
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent mt-4">
+   <div class="container">
+     <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-gray" href="{{ route('home.index') }}">
+      YouLink
+      </a>
+
+     <div class="collapse navbar-collapse" id="navigation">
+       <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
+         <li class="nav-item">
+           <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="{{ route('home.index') }}">
+             <i class="fa fa-chart-pie opacity-6  me-1"></i>
+             Home
+           </a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link me-2" href="{{ route('register') }}">
+             <i class="fas fa-user-circle opacity-6  me-1"></i>
+             Sign Up
+           </a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link me-2" href="{{ route('login') }}">
+             <i class="fas fa-key opacity-6  me-1"></i>
+             Sign In
+           </a>
+         </li>
+       </ul>
+
+     </div>
+   </div>
+ </nav>
+ <!-- End Navbar -->
   <div class="container position-sticky z-index-sticky top-0">
     <div class="row">
       <div class="col-12">

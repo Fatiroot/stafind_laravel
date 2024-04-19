@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->date('duration');
+            $table->integer('duration');
             $table->double('salary');
             $table->string('localisation');
             $table->integer('status')->default(1);

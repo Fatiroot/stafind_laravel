@@ -30,6 +30,6 @@ class Company extends Model implements HasMedia
 
         public function sectors()
         {
-            return $this->belongsToMany(Sector::class, 'company_sector');
+            return $this->belongsToMany(Sector::class, 'company-sector');
         }
 }

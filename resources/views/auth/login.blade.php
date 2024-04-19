@@ -74,4 +74,19 @@
         document.getElementById('signINForm').submit();
     }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('error'))
+<script>
+    // Display SweetAlert message when the document is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: '{{ session('error') }}'
+        });
+    });
+</script>
+@endif
+
 @endsection

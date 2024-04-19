@@ -4,6 +4,80 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+ 
+
+ .box{
+     color: #fff;
+     background: #2b3c4e;
+     font-family: 'Ubuntu', sans-serif;
+     overflow: hidden;
+     position: relative;
+     transition: all 0.3s ease-in-out;
+ }
+ .box:hover{ box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
+ .box img{
+     width: 100%;
+     height: auto;
+     transition: all 0.3s ease;
+ }
+ .box:hover img{
+     opacity: 0.6;
+     filter: grayscale(100%);
+ }
+ .box .box-content{
+     color: #fff;
+     background: linear-gradient(to right, transparent,transparent,rgba(34,47,61,0.9),#222f3d,#222f3d);
+     text-align: right;
+     width: 100%;
+     padding: 15px 15px 15px 60px;
+     transform: translateY(-50%) scaleY(0);
+     position: absolute;
+     top: 50%;
+     right: 0;
+     transition: all 0.3s ease-in-out;
+ }
+ .box:hover .box-content{ transform: translateY(-50%) scaleY(1); }
+ .box .title{
+     font-size: 20px;
+     font-weight: 800;
+     letter-spacing: 1px;
+     text-transform: uppercase;
+     margin: 0 0 4px;
+ }
+ .box .post{
+     font-size: 15px;
+     font-style: italic;
+     text-transform: capitalize;
+     margin: 0 0 5px;
+     display: block;
+ }
+ .box .icon{
+     padding: 0;
+     margin: 0;
+     list-style: none;
+     transform: translate(-100%, -50%);
+     position: absolute;
+     top: 50%;
+     left: 0;
+     transition: all 0.3s ease-in-out;
+ }
+ .box:hover .icon{ transform: translate(0, -50%); }
+ .box .icon li a{
+     color: #222f3d;
+     background: #fff;
+     font-size: 20px;
+     text-align:center;
+     line-height: 40px;
+     height: 40px;
+     width: 40px;
+     display: block;
+     transition: all 0.3s ease;
+ }
+ .box .icon li  a:hover{ box-shadow: 0 0 5px #222f3d inset; }
+ @media only screen and (max-width:990px){
+     .box { margin: 0 0 30px; }
+ }
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -628,7 +702,7 @@ pre code {
   margin-left: auto;
 }
 
-.row {
+/* .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -636,7 +710,7 @@ pre code {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
-}
+} */
 
 .no-gutters {
   margin-right: 0;

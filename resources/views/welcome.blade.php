@@ -132,7 +132,6 @@
       <div class="row d-flex">
         <div class="col-md-3 d-flex align-self-stretch ftco-animate">
           <div class="media block-6 services d-block">
-            <div class="icon"><span class="flaticon-resume"></span></div>
             <div class="media-body">
               <h3 class="heading mb-3">Search Millions of Stages</h3>
               <p>A small river named Duden flows by their place and supplies.</p>
@@ -141,7 +140,6 @@
         </div>
         <div class="col-md-3 d-flex align-self-stretch ftco-animate">
           <div class="media block-6 services d-block">
-            <div class="icon"><span class="flaticon-collaboration"></span></div>
             <div class="media-body">
               <h3 class="heading mb-3">Easy To Manage Stages</h3>
               <p>A small river named Duden flows by their place and supplies.</p>
@@ -150,7 +148,6 @@
         </div>
         <div class="col-md-3 d-flex align-self-stretch ftco-animate">
           <div class="media block-6 services d-block">
-            <div class="icon"><span class="flaticon-promotions"></span></div>
             <div class="media-body">
               <h3 class="heading mb-3">Top Careers</h3>
               <p>A small river named Duden flows by their place and supplies.</p>
@@ -159,7 +156,6 @@
         </div>
         <div class="col-md-3 d-flex align-self-stretch ftco-animate">
           <div class="media block-6 services d-block">
-            <div class="icon"><span class="flaticon-employee"></span></div>
             <div class="media-body">
               <h3 class="heading mb-3">Search Expert Candidates</h3>
               <p>A small river named Duden flows by their place and supplies.</p>
@@ -175,7 +171,7 @@
       <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-7 heading-section text-center ftco-animate">
           <span class="subheading">Categories work wating for you</span>
-          <h2 class="mb-4"><span>Current</span> Stage Posts</h2>
+          <h2 class="mb-3"><span>Current</span> Stage Posts</h2>
         </div>
       </div>
       <div class="row">
@@ -201,87 +197,73 @@
       <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-7 heading-section text-center ftco-animate">
           <span class="subheading">Recently Added Stages</span>
-          <h2 class="mb-4"><span>Recent</span> Stages</h2>
+          <h2 class="mb-2"><span>Recent</span> Stages</h2>
         </div>
-      </div>
-      <div class="row">
-        @foreach ($offers as $offer )
-        <div class="col-md-12 ftco-animate">
-          <div class="Stage-post-item bg-white p-4 d-block d-md-flex align-items-center">
-            <img id="preview-image" class="block-20" src="{{ $offer->company->getFirstMediaUrl('company') }}" alt="Company Logo" style="width: 120px; height: 120px; margin-right: 20px ;">
-
-            <div class="mb-4 mb-md-0 mr-5">
-              <div class="Stage-post-item-header d-flex align-items-center">
-                <h2 class="mr-3 text-black h3">{{ $offer->title }}</h2>
-                <div class="badge-wrap">
-                  <span class="bg-warning text-white badge py-2 px-3">{{ $offer->created_at->diffForHumans() }}</span>
-                </div>
-              </div>
-              <div class="mr-3 text-">
-                <lord-icon
-                src="https://cdn.lordicon.com/prjooket.json"
-                trigger="hover"
-                colors="primary:#545454"
-                style="width:20px;height:20px">
-            </lord-icon>
-              <a href="#">{{ $offer->domain->name }}</div>
-              <div class="Stage-post-item-body d-block d-md-flex">
-                <div class="mr-3 text-black">
-                    <lord-icon
+    </div>
+    <section id="gallery">
+        <div class="container">
+          <div class="row">
+            @foreach ($offers as $offer)
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                  <img src="{{ $offer->company->getFirstMediaUrl('company') }}" alt=""  style="height: 250px">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ $offer->title }}</h5>
+                    <p class="card-text">{{ strlen($offer->description) > 100 ? substr($offer->description, 0, 100) . '...' : $offer->description }}</p>
+                     </div>
+                  <div class="mx-2">
+                  <lord-icon
                         src="https://cdn.lordicon.com/ppyvfomi.json"
                         trigger="hover"
                         colors="primary:#545454"
                         style="width:20px;height:20px">
                     </lord-icon>
-                     <a href="#">{{ $offer->company->name }}</div>
-                <div><span class="icon-my_location"></span>
+                  <a href="#" class="" style=" text-decoration:none">{{ $offer->company->name }}</a>
+                </div>
+                <div class="mx-2">
                     <lord-icon
                         src="https://cdn.lordicon.com/surcxhka.json"
                         trigger="hover"
-                        colors="primary:#848484,secondary:#3080e8"
+                        colors="primary:#545454,secondary:#3080e8"
                         style="width:20px;height:20px">
                     </lord-icon>
-                    <span>{{ $offer->city->name }}</span></div>
+                    <a href="#" class="" style=" text-decoration:none">{{ $offer->city->name }}</a>
+                  </div>
+                  <div class="card-body ">
+                    <a href="{{ route('UserOffer.show', $offer->id) }}" class="btn btn-outline-success btn-sm">Read More</a>
+                    <span class="bg-warning text-white badge py-2 px-3">{{ $offer->created_at->diffForHumans() }}</span>
+                     </div>
+                </div>
               </div>
-            </div>
-            <div class="ml-auto d-flex">
-              <a href="{{ route('UserOffer.show', $offer->id) }}" class="btn btn-primary py-2 mr-1">Apply Stage</a>
-              </a>
-            </div>
+            @endforeach
           </div>
-        </div><!-- end -->
-        @endforeach
-      </div>
-    </div>
+        </div>
+    </section>
   </section>
-  <section class="ftco-section bg-light">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
+  <div class="container">
     <div class="container">
-      <div class="row justify-content-center mb-5 pb-3">
-        <div class="col-md-7 heading-section text-center ftco-animate">
-          <span class="subheading">Our Companies</span>
-          <h2><span>Recent</span> Companies</h2>
-        </div>
-      </div>
-      <div class="row d-flex">
-        @foreach ($companies as $company )
-        <div class="col-md-3 d-flex ftco-animate">
-          <div class="blog-entry align-self-stretch">
-            <img id="preview-image"  class="block-20"
-            src="{{ $company->getFirstMediaUrl('company') }}" alt="Company Logo" style="width: 200px; height:400px">
-            <div class="text mt-3">
-              <div class="meta mb-2">
-                <div><a href="#">{{ $company->name }}</a></div>
-              </div>
-              <h3 class="heading "><a href="#">{{ $company->description }}</a>
-              </h3>
-              <p>{{ $company->location }}</p>
-            </div>
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <span class="subheading">Our Companies</span>
+            <h2><span>Recent</span> Companies</h2>
           </div>
         </div>
+    <div class="row">
+        @foreach ($companies as $company)
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="box">
+                    <img src="{{ $company->getFirstMediaUrl('company') }}" style="height: 250px; width: 100%;" class="img-fluid">
+                    <div class="box-content">
+                        <h3 class="title">{{ $company->name }}</h3>
+                        <span class="post">{{ $company->location }}</span>
+                    </div>
+                </div>
+            </div>
         @endforeach
-
-      </div>
     </div>
-  </section>
+</div>
+  </div>
+
   @endsection
 

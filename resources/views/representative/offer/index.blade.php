@@ -62,7 +62,7 @@
                 </div>
                 <div class="mt-2 px-20">
                     <p class="text-gray-600">
-                        duration : {{ $offer->duration }}
+                        duration : {{ $offer->duration }} month
                     </p>
                     <ul class="list-disc list-inside text-gray-600 mt-2">
                         <li class="text-gray font-semibold">localisation : {{ $offer->localisation }}</li>
@@ -101,7 +101,22 @@
                 </div>
             </div>
         @endforeach
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+@if(session('success'))
+<script>
+    // Display SweetAlert message when the document is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{ session('success') }}'
+        });
+    });
+</script>
+
+@endif
 
 </div>
 </x-dashboard>
