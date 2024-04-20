@@ -26,13 +26,12 @@
 
               <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                 aria-labelledby="v-pills-nextgen-tab">
-                <form action="#" class="search-Internship">
                   <div class="row">
                     <div class="col-md">
                       <div class="form-group">
                         <div class="form-field">
                           <div class="icon"><span class="icon-briefcase"></span></div>
-                          <input type="text" class="form-control" placeholder="eg. Garphic. Web Developer">
+                          <input type="text" id="search-input"  name="searchItem" class="form-control" placeholder="title">
                         </div>
                       </div>
                     </div>
@@ -41,13 +40,11 @@
                         <div class="form-field">
                           <div class="select-wrap">
                             <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                            <select name="" id="" class="form-control">
-                              <option value="">Category</option>
-                              <option value="">Full Time</option>
-                              <option value="">Part Time</option>
-                              <option value="">Freelance</option>
-                              <option value="">Internship</option>
-                              <option value="">Temporary</option>
+                            <select name="name" id="" class="form-control">
+                                <option value="">Select a Domain</option>
+                                @foreach ($domains as $domain )
+                              <option value="{{ $domain->name }}">{{ $domain->name }}</option>
+                              @endforeach
                             </select>
                           </div>
                         </div>
@@ -64,12 +61,11 @@
                     <div class="col-md">
                       <div class="form-group">
                         <div class="form-field">
-                          <input type="submit" value="Search" class="form-control btn btn-primary">
+                          <button type="submit" id="search-btn" value="Search" class="form-control btn btn-primary">Search</button>
                         </div>
                       </div>
                     </div>
                   </div>
-                </form>
               </div>
 
               <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
@@ -135,7 +131,7 @@
     </div>
     <section id="gallery">
         <div class="container">
-          <div class="row">
+          <div class="row offer-wrapper ">
             @foreach ($offers as $offer)
               <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card">
@@ -177,6 +173,6 @@
     </div>
     </div>
   </section>
-
+  <script src="{{asset('js/searchOffer.js')}}"></script>
   @endsection
 

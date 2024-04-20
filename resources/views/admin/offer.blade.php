@@ -18,6 +18,7 @@
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 10%;">Localisation</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 10%;">Salary</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 10%;">user</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 10%;">view</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 10%;">Status</th>
                         </tr>
                     </thead>
@@ -46,6 +47,46 @@
                             <td style="width: 10%; text-align: center;">
                                 <span class=" text-xs font-weight-bold  mb-0">{{ $offer->user->fullname}}</span>
                             </td>
+                            <td style="width: 10%; text-align: center;">
+                                <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/vfczflna.json"
+                                    trigger="click"
+                                    colors="primary:#848484,secondary:#3080e8"
+                                    style="width:20px;height:20px; cursor: pointer;"
+                                    id="eyeIcon{{ $offer->id }}"
+                                >
+                                </lord-icon>
+                                <div class="mx-2">
+                                    <!-- Update Offer Modal -->
+                                    <div class="modal fade" id="updateOfferModal{{ $offer->id }}" tabindex="-1" aria-labelledby="updateOfferModal{{ $offer->id }}Label" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="updateOfferModal{{ $offer->id }}Label">Offer Description</h5>
+                                                    <button type="button" class="btn-close btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!-- Display Offer Description in Modal -->
+                                                    <div class="form-group">
+                                                        <p>{{ $offer->description }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <script>
+                                // Add event listener to the eye icon to show the modal
+                                document.getElementById('eyeIcon{{ $offer->id }}').addEventListener('click', function() {
+                                    // Show the modal corresponding to this offer
+                                    var modal = new bootstrap.Modal(document.getElementById('updateOfferModal{{ $offer->id }}'));
+                                    modal.show();
+                                });
+                            </script>
+
                             <td style="width: 10%; text-align: center;">
                                 <form method="POST" action="{{ route('adminOffer.changeStatus', $offer->id) }}" id="update-offer-form-{{ $offer->id }}">
                                     @csrf
