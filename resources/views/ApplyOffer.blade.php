@@ -15,65 +15,98 @@
   </div>
  </div>
 </div>
+<h1 class="text-4xl text-center font-extrabold text-gray-900 my-5">Details of offer:</h1>
 
-<section class="ftco-section ftco-counter">
-    <div class="container">
-            <div class="d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <img class="mx-3" src="{{ $offer->user->company->getFirstMediaUrl('company') }}" alt="Company logo" style="width: 150px; height:150px">
-                    <div>
-                        <h2 class="text-xl font-bold text-gray-900">{{ $offer->title }}</h2>
-                        <p class="text-gray-600">{{ $offer->user->company->name }} -- {{ $offer->created_at->diffForHumans() }}</p>
-                    </div>
-                </div>
+<section id="intro" class=" d-flex align-items-center ">
+
+    <div class="container text-dark">
+      <div class="row gx-5 d-flex align-items-center mb-4">
+        <div class="col-xl-7 col-lg-6 d-none d-lg-block ">
+          <div class="card bg-light rounded-6 shadow-5-strong">
+            <div class="bg-image hover-overlay ripple rounded" data-mdb-ripple-color="light" data-mdb-perfect-scrollbar="true"  >
+                <img src="{{ $offer->user->company->getFirstMediaUrl('company') }}" class="w-100 " alt="Bootstrap 5 eCommerce Product Details"style="height: 500px">
             </div>
+          </div>
+        </div>
+        <div class="col-xl-5 col-lg-6">
+          <h1 class="h2">
+            <span class="">{{ $offer->title }}</span><br>
+            <span class="text-primary fw-bold">{{ $offer->user->company->name }}</span>
+          </h1>
+          <p class="text-muted">{{ $offer->description }}</p>
+          <a class="btn btn-tertiary btn-lg btn-block mb-2" href="#choices" role="button">
+            InterShip Summary
+          </a>
+          <ul class="list-group list-group-light list-group-small small mt-2">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="text-muted"><i class="fas fa-calendar-alt mx-2"></i> Published on: {{ $offer->created_at }}</div>
+            </li>
 
-            <div class="d-flex justify-content-between mt-4">
-                <div class="mt-4 px-20">
-                    <h4>Stage Description</h4>
-                    <p class="text-gray-600"> {{ $offer->description }}</p>
-                    <ul class="list-disc list-inside text-gray-600 mt-2">
-                        <li class="text-black font-semibold">Domain: {{ $offer->domain->name }}</li>
-                    </ul>
-                </div>
-                <div class="mt-4 px-20">
-                    <h4>Stage Summary</h4>
-                    <ul class="list-disc list-inside text-gray-600 mt-2">
-                        <li class="text-black font-semibold">Published on : {{ $offer->created_at }}</li>
-                        <li class="text-black font-semibold">City : {{ $offer->city->name }}</li>
-                        <li class="text-black font-semibold">Duration : {{ $offer->duration}}</li>
-                        <li class="text-black font-semibold">Stage Location : {{ $offer->localisation}}</li>
-                        <li class="text-black font-semibold">Slary : {{ $offer->salary }} DH</li>
-                    </ul>
-                </div>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="text-muted"><i class="fas fa-map-marker-alt mx-2"></i> City: {{ $offer->city->name }}</div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="text-muted"><i class="far fa-clock mx-2"></i> Duration: {{ $offer->duration }} month</div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="text-muted"><i class="fas fa-map-pin mx-2"></i> Stage Location: {{ $offer->localisation }}</div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="text-muted"><i class="fas fa-money-bill-wave mx-2"></i> Salary: {{ $offer->salary }} DH for month</div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="text-muted"><i class="fas fa-briefcase mx-2"></i> Domain: {{ $offer->domain->name }}</div>
+            </li>
+          </ul>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn bg-primary btn-lg text-white mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fas fa-info me-2"></i>  Apply Now
+          </button>
 
-            </div>
-
-        <h1 class="mb-10 border-bottom py-4 text-4xl text-center font-extrabold text-gray-900">Apply to this offer:</h1>
-
-        <form class="px-56" method="POST" action="{{ route('UserOffer.store') }}" enctype="multipart/form-data">
-            @csrf
-            @auth
-            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-            @endauth
-            <input type="hidden" name="offer_id" value="{{ $offer->id }}" class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:ring-blue-500 focus:border-blue-500 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-
-            <div class="mb-6">
-                <label for="title" class="form-label mb-2 text-sm font-medium text-gray-900">Put your CV here:</label>
-                <input name="cv" class="form-control form-control-lg" id="file_input" type="file">
-            </div>
-
-            <label for="title" class="form-label mb-2 text-sm font-medium text-gray-900">Write a Cover Letter or Your Motivations for the Post:</label>
-            <textarea name="description" class="form-control" rows="6"></textarea>
-            @auth
-            <button type="submit" class="btn btn-primary mt-4">Submit</button>
-            @endauth
-            @guest
-            <a href="{{ route('register') }}" class="btn btn-primary mt-4">Apply</a>
-            @endguest
-        </form>
-
+        </div>
     </div>
-</section>
+  </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Apply for {{ $offer->title }}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST" action="{{ route('UserOffer.store') }}" enctype="multipart/form-data">
+              @csrf
+              <div class="modal-body">
+                @auth
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                @endauth
+                <input type="hidden" name="offer_id" value="{{ $offer->id }}">
+
+                <div class="mb-3">
+                  <label for="cv" class="form-label">Upload your CV:</label>
+                  <input name="cv" class="form-control" type="file" id="cv">
+                </div>
+
+                <div class="mb-3">
+                  <label for="description" class="form-label">Cover Letter or Motivation:</label>
+                  <textarea name="description" class="form-control" rows="6"></textarea>
+                </div>
+              </div>
+              <div class="modal-footer">
+                @auth
+                <button type="submit" class="btn btn-primary">Submit</button>
+                @else
+                <a href="{{ route('register') }}" class="btn btn-primary">Apply</a>
+                @endauth
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 
 @endsection

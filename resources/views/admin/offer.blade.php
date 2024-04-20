@@ -13,7 +13,6 @@
                         <tr>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 10%;">ID</th>
                             <th class=" text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 10%;">Title</th>
-                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 10%;">Description</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 10%;">Company</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 10%;">Duration</th>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" style="width: 10%;">Localisation</th>
@@ -31,9 +30,7 @@
                             <td style="width: 10%; text-align: center;">
                                 <h6 class=" text-xs font-weight-bold mb-0">{{ $offer->title }}</h6>
                             </td>
-                            <td style="width: 10%; text-align: center;">
-                                <span class=" text-xs font-weight-bold mb-0">{{ $offer->description }}</span>
-                            </td>
+
                             <td style="width: 10%; text-align: center;">
                                 <span class=" text-xs font-weight-bold mb-0">{{ $offer->user->company->name }}</span>
                             </td>
