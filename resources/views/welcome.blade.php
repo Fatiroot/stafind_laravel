@@ -134,7 +134,6 @@
         </div>
     </div>
   </section>
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
   <div class="container">
     <div class="container ">
         <div class="row justify-content-center mb-5 pb-3 mt-5 pt-3">
@@ -151,6 +150,7 @@
                     <div class="box-content">
                         <h3 class="title">{{ $company->name }}</h3>
                         <span class="post">{{ $company->location }}</span>
+                        <a href="{{ route('home.show', $company->id) }}">more</a>
                     </div>
                 </div>
             </div>

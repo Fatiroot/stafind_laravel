@@ -121,8 +121,8 @@
             <h2 class="ftco-heading-2">Have a Questions?</h2>
             <div class="block-23 mb-3">
               <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San
-                    Francisco, California, USA</span></li>
+                <li><span class="icon"><i class="fas fa-map-marker-alt"></i></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+
                     <li>
                         <a href="#">
                           <i class="fas fa-phone-alt mx-2"></i>

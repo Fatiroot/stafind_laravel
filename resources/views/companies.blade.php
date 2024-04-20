@@ -1,7 +1,7 @@
 
 @extends('components.home')
 @section('content')
-<div class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+<div class="hero-wrap js-fullheight" style="background-image: url('images/bg-home.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start" data-scrollax-parent="true">
@@ -25,7 +25,7 @@
                     <div class="box-content">
                         <h3 class="title">{{ $company->name }}</h3>
                         <span class="post">{{ $company->location }}</span>
-                        <a href="">more</a>
+                        <a href="{{ route('home.show', $company->id) }}">more</a>
                     </div>
                 </div>
             </div>
