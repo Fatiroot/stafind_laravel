@@ -9,15 +9,15 @@
     data-scrollax-parent="true">
     <div class="col-xl-10 ftco-animate mb-5 pb-5" data-scrollax=" properties: { translateY: '70%' }">
       <p class="mb-4 mt-5 pt-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We have <span
-          class="number" data-number="850000">0</span> great Stage offers you deserve!</p>
-      <h1 class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Your Dream <br><span>Stage is
+          class="number" data-number="850000">0</span> great Internship offers you deserve!</p>
+      <h1 class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Your Dream <br><span>Internship is
           Waiting</span></h1>
       <div class="ftco-search">
         <div class="row">
           <div class="col-md-12 nav-link-wrap">
             <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
               <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab"
-                aria-controls="v-pills-1" aria-selected="true">Find a Stage</a>
+                aria-controls="v-pills-1" aria-selected="true">Find a Internship</a>
             </div>
           </div>
           <div class="col-md-12 tab-wrap">
@@ -26,7 +26,7 @@
 
               <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                 aria-labelledby="v-pills-nextgen-tab">
-                <form action="#" class="search-Stage">
+                <form action="#" class="search-Internship">
                   <div class="row">
                     <div class="col-md">
                       <div class="form-group">
@@ -73,7 +73,7 @@
               </div>
 
               <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
-                <form action="#" class="search-Stage">
+                <form action="#" class="search-Internship">
                   <div class="row">
                     <div class="col-md">
                       <div class="form-group">
@@ -130,8 +130,7 @@
     <div class="container">
       <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-7 heading-section text-center ftco-animate">
-          <span class="subheading">Recently Added Stages</span>
-          <h2 class="mb-2"><span>Recent</span> Stages</h2>
+          <h2 class="mb-2"><span>All</span> Internships</h2>
         </div>
     </div>
     <section id="gallery">
@@ -173,6 +172,10 @@
           </div>
         </div>
     </section>
+    <div class="d-flex justify-content-center">
+        {{ $offers->links() }}
+    </div>
+    </div>
   </section>
 
   @endsection

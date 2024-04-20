@@ -9,120 +9,9 @@
     data-scrollax-parent="true">
     <div class="col-xl-10 ftco-animate mb-5 pb-5" data-scrollax=" properties: { translateY: '70%' }">
       <p class="mb-4 mt-5 pt-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We have <span
-          class="number" data-number="850000">0</span> great Stage offers you deserve!</p>
-      <h1 class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Your Dream <br><span>Stage is
+          class="number" data-number="850000">0</span> great Internship offers you deserve!</p>
+      <h1 class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Your Dream <br><span>Internship is
           Waiting</span></h1>
-
-      <div class="ftco-search">
-        <div class="row">
-          <div class="col-md-12 nav-link-wrap">
-            <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab"
-                aria-controls="v-pills-1" aria-selected="true">Find a Stage</a>
-            </div>
-          </div>
-          <div class="col-md-12 tab-wrap">
-
-            <div class="tab-content p-4" id="v-pills-tabContent">
-
-              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
-                aria-labelledby="v-pills-nextgen-tab">
-                <form action="#" class="search-Stage">
-                  <div class="row">
-                    <div class="col-md">
-                      <div class="form-group">
-                        <div class="form-field">
-                          <div class="icon"><span class="icon-briefcase"></span></div>
-                          <input type="text" class="form-control" placeholder="eg. Garphic. Web Developer">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md">
-                      <div class="form-group">
-                        <div class="form-field">
-                          <div class="select-wrap">
-                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                            <select name="" id="" class="form-control">
-                              <option value="">Category</option>
-                              <option value="">Full Time</option>
-                              <option value="">Part Time</option>
-                              <option value="">Freelance</option>
-                              <option value="">Internship</option>
-                              <option value="">Temporary</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md">
-                      <div class="form-group">
-                        <div class="form-field">
-                          <div class="icon"><span class="icon-map-marker"></span></div>
-                          <input type="text" class="form-control" placeholder="Location">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md">
-                      <div class="form-group">
-                        <div class="form-field">
-                          <input type="submit" value="Search" class="form-control btn btn-primary">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-
-              <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
-                <form action="#" class="search-Stage">
-                  <div class="row">
-                    <div class="col-md">
-                      <div class="form-group">
-                        <div class="form-field">
-                          <div class="icon"><span class="icon-user"></span></div>
-                          <input type="text" class="form-control" placeholder="eg. Adam Scott">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md">
-                      <div class="form-group">
-                        <div class="form-field">
-                          <div class="select-wrap">
-                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                            <select name="" id="" class="form-control">
-                              <option value="">Category</option>
-                              <option value="">Full Time</option>
-                              <option value="">Part Time</option>
-                              <option value="">Freelance</option>
-                              <option value="">Internship</option>
-                              <option value="">Temporary</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md">
-                      <div class="form-group">
-                        <div class="form-field">
-                          <div class="icon"><span class="icon-map-marker"></span></div>
-                          <input type="text" class="form-control" placeholder="Location">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md">
-                      <div class="form-group">
-                        <div class="form-field">
-                          <input type="submit" value="Search" class="form-control btn btn-primary">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
  </div>
@@ -133,7 +22,7 @@
         <div class="col-md-3 d-flex align-self-stretch ftco-animate">
           <div class="media block-6 services d-block">
             <div class="media-body">
-              <h3 class="heading mb-3">Search Millions of Stages</h3>
+              <h3 class="heading mb-3">Search Millions of Internships</h3>
               <p>A small river named Duden flows by their place and supplies.</p>
             </div>
           </div>
@@ -141,7 +30,7 @@
         <div class="col-md-3 d-flex align-self-stretch ftco-animate">
           <div class="media block-6 services d-block">
             <div class="media-body">
-              <h3 class="heading mb-3">Easy To Manage Stages</h3>
+              <h3 class="heading mb-3">Easy To Manage Internships</h3>
               <p>A small river named Duden flows by their place and supplies.</p>
             </div>
           </div>
@@ -171,7 +60,7 @@
       <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-7 heading-section text-center ftco-animate">
           <span class="subheading">Categories work wating for you</span>
-          <h2 class="mb-3"><span>Current</span> Stage Posts</h2>
+          <h2 class="mb-3"><span>Current</span> Internship Posts</h2>
         </div>
       </div>
       <div class="row">
@@ -196,8 +85,8 @@
     <div class="container">
       <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-7 heading-section text-center ftco-animate">
-          <span class="subheading">Recently Added Stages</span>
-          <h2 class="mb-2"><span>Recent</span> Stages</h2>
+          <span class="subheading">Recently Added Internships</span>
+          <h2 class="mb-2"><span>Recent</span> Internships</h2>
         </div>
     </div>
     <section id="gallery">
@@ -239,17 +128,22 @@
           </div>
         </div>
     </section>
+    <div class="row justify-content-center ">
+        <div class="col-md-7 heading-section text-center ftco-animate">
+            <a class="nav-link text" href="{{ route('UserOffer.index') }}" style="font-weight: bold;">See more</a>
+        </div>
+    </div>
   </section>
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
   <div class="container">
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
+    <div class="container ">
+        <div class="row justify-content-center mb-5 pb-3 mt-5 pt-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
             <span class="subheading">Our Companies</span>
             <h2><span>Recent</span> Companies</h2>
           </div>
         </div>
-    <div class="row">
+    <div class="row ">
         @foreach ($companies as $company)
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="box">
@@ -261,6 +155,11 @@
                 </div>
             </div>
         @endforeach
+    </div>
+</div>
+<div class="row justify-content-center mb-5 pb-3 ">
+    <div class="col-md-7 heading-section text-center ftco-animate">
+        <a class="nav-link text" href="{{ route('allCompanies') }}" style="font-weight: bold;">See more</a>
     </div>
 </div>
   </div>

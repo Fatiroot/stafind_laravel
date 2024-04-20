@@ -29,8 +29,8 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item "><a href="home" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="about" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="{{ route('UserOffer.index') }} "class="nav-link">Find Stages</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Sample</a></li>
+            <li class="nav-item"><a href="{{ route('UserOffer.index') }} "class="nav-link"> Internships</a></li>
+            <li class="nav-item"><a href="{{ route('allCompanies') }}" class="nav-link">Companies</a></li>
 
             @auth
             <li class="nav-item">
@@ -83,10 +83,10 @@
             <h2 class="ftco-heading-2">About</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
               blind texts.</p>
-            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+            <ul class="ftco-footer-social  ">
+                <li class="ftco-animate"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li class="ftco-animate"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li class="ftco-animate"><a href="#"><i class="fab fa-instagram"></i></a></li>
             </ul>
           </div>
         </div>
@@ -96,7 +96,7 @@
             <ul class="list-unstyled">
               <li><a href="#" class="py-2 d-block">How it works</a></li>
               <li><a href="#" class="py-2 d-block">Register</a></li>
-              <li><a href="#" class="py-2 d-block">Post a Stage</a></li>
+              <li><a href="#" class="py-2 d-block">Post aInternship</a></li>
               <li><a href="#" class="py-2 d-block">Advance Skill Search</a></li>
               <li><a href="#" class="py-2 d-block">Recruiting Service</a></li>
               <li><a href="#" class="py-2 d-block">Blog</a></li>
@@ -123,8 +123,18 @@
               <ul>
                 <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San
                     Francisco, California, USA</span></li>
-                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                <li><a href="#"><span class="icon icon-envelope"></span><span
+                    <li>
+                        <a href="#">
+                          <i class="fas fa-phone-alt mx-2"></i>
+                          <span class="text">+2 392 3929 210</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="far fa-envelope mx-2"></i>
+                          <span class="text">example@example.com</span>
+                        </a>
+                      </li>
                       class="text">info@yourdomain.com</span></a></li>
               </ul>
             </div>

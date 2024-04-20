@@ -12,12 +12,19 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $companies = Company::take(4)->get();
+        $companies = Company::take(6)->get();
         $cities = City::all();
         $domains = Domain::withCount(['offers' => function ($query) {
-            $query->where('status', 0); 
+            $query->where('status', 0);
         }])->get();
-                $offers = Offer::where('status', 0)->get();
+         $offers = Offer::where('status', 0)->take(6)->get();
         return view('welcome', compact('offers','cities','domains','companies'));
     }
+    public function allCompanies()
+    {
+        $companies = Company::paginate(6);
+
+        return view('companies', compact('companies'));
+    }
+
 }

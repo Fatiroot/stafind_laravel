@@ -14,10 +14,10 @@ class UserOfferController extends Controller
 {
     public function index()
     {
-        $companies = Company::take(4)->get();
+        $companies = Company::all();
         $cities = City::all();
         $domains = Domain::all();
-        $offers = Offer::where('status', 0)->get();
+        $offers = Offer::where('status', 0)->paginate(6);
         return view('stages_post', compact('offers','cities','domains','companies'));
     }
 

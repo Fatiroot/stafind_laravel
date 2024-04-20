@@ -15,23 +15,92 @@
       </div>
     </div>
 </div>
-
-  <section class="ftco-about d-md-flex">
+<section class="container pb-5">
+  <div class="ftco-about d-md-flex mt-5">
       <div class="one-half img" style="background-image: url(images/about.jpg);"></div>
       <div class="one-half ftco-animate">
       <div class="heading-section ftco-animate ">
         <h2 class="mb-4"><span>We Are The Job Portal Agency</span></h2>
       </div>
       <div>
-                <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+        <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
             </div>
       </div>
-  </section>
+  </div>
+</section>
+<!-- End -->
+<div class="row justify-content-center mb-5 pb-3">
+    <div class="col-md-7 heading-section text-center ftco-animate">
+      <span class="subheading">Testimonial</span>
+      <h2 class="mb-3"> Happy Clients</h2>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row text-center">
+        <!-- Team item -->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-4.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">Manuella Nevoresky</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+                <ul class="social mb-0 list-inline mt-3">
+                    <li class="list-inline-item"><a href="https://www.facebook.com" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item"><a href="https://twitter.com" class="social-link"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.instagram.com" class="social-link"><i class="fab fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.linkedin.com" class="social-link"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div><!-- End -->
+
+        <!-- Team item -->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-2.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">Samuel Hardy</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+                <ul class="social mb-0 list-inline mt-3">
+                    <li class="list-inline-item"><a href="https://www.facebook.com" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item"><a href="https://twitter.com" class="social-link"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.instagram.com" class="social-link"><i class="fab fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.linkedin.com" class="social-link"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div><!-- End -->
+
+        <!-- Team item -->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-1.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">Tom Sunderland</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+                <ul class="social mb-0 list-inline mt-3">
+                    <li class="list-inline-item"><a href="https://www.facebook.com" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item"><a href="https://twitter.com" class="social-link"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.instagram.com" class="social-link"><i class="fab fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.linkedin.com" class="social-link"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div><!-- End -->
+
+        <!-- Team item -->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-team/teacher-7.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">John Tarly</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+                <ul class="social mb-0 list-inline mt-3">
+                    <li class="list-inline-item"><a href="https://www.facebook.com" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item"><a href="https://twitter.com" class="social-link"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.instagram.com" class="social-link"><i class="fab fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.linkedin.com" class="social-link"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div><!-- End -->
+    </div>
+</div>
+<div class="row justify-content-center mb-5 pb-3">
+    <div class="col-md-7 heading-section text-center ftco-animate">
+      <h2 class="mb-3">Contact Information</h2>
+    </div>
+</div>
   <section class="ftco-section contact-section bg-light">
     <div class="container">
       <div class="row d-flex mb-5 contact-info">
         <div class="col-md-12 mb-4">
-          <h2 class="h3">Contact Information</h2>
         </div>
         <div class="w-100"></div>
         <div class="col-md-3">
@@ -68,13 +137,14 @@
           </form>
 
         </div>
-
         <div class="col-md-6 d-flex">
-            <div class="hero-wrap js-fullheight" style="background-image: url('images/image_5.jpg');" data-stellar-background-ratio="0.5"></div>
+            <div class="one-half img" style="background-image: url({{ asset('images/bg_1.jpg') }});"></div>
         </div>
       </div>
     </div>
   </section>
+
+  
   <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({{ asset('images/bg_1.jpg') }});" data-stellar-background-ratio="0.5">
       <div class="container">
           <div class="row justify-content-center">

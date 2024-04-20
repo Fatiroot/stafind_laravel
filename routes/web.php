@@ -54,6 +54,7 @@ Route::get('about', function () {
 
 
 Route::resource('home', HomeController::class);
+Route::get('companies', [HomeController::class,'allCompanies'])->name('allCompanies');
 
 
 Route::resource('UserOffer', UserOfferController::class);
