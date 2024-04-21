@@ -36,7 +36,7 @@
  <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent mt-4">
    <div class="container">
      <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-gray" href="{{ route('home.index') }}">
-      YouLink
+        <img src="{{ asset('img/logo.png') }}" class="mx-auto" alt="main_logo" style="height: 50px">
       </a>
 
      <div class="collapse navbar-collapse" id="navigation">
