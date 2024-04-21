@@ -186,7 +186,7 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+              <a href="{{ route('adminUser.edit', Auth::id()) }}" class="nav-link text-body font-weight-bold px-0">
                  <img src="{{ Auth::user()->getFirstMediaUrl('user')}}" class="avatar me-3" alt="company" style="width: 30px; height: 30px;">
               </a>
             </li>
