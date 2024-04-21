@@ -71,7 +71,7 @@
                   <img src="{{ $offer->company->getFirstMediaUrl('company') }}" alt=""  style="height: 250px">
                   <div class="card-body">
                     <h5 class="card-title">{{ $offer->title }}</h5>
-                    <p class="card-text">{{ strlen($offer->description) > 100 ? substr($offer->description, 0, 100) . '...' : $offer->description }}</p>
+                    <p class="card-text">{{ strlen($offer->description) > 50 ? substr($offer->description, 0, 50) . '...' : $offer->description }}</p>
                      </div>
                   <div class="mx-2">
                   <lord-icon

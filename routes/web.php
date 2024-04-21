@@ -42,28 +42,21 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 
-// Route::get('signUp',[AuthController::class, 'SignUp'])->name('SignUp');
-// Route::post('register',[AuthController::class, 'register'])->name('register');
 
-// Route::get('signIn',[AuthController::class, 'SignIn'])->name('SignIn');
-// Route::post('login',[AuthController::class, 'login'])->name('login');
-
+//Home Route
 Route::get('about', function () {
     return view('about');
 });
-
-
 Route::resource('home', HomeController::class);
 Route::get('companies', [HomeController::class,'allCompanies'])->name('allCompanies');
-Route::get('/search', [HomeController::class, 'search'])->name('search');
-
-
+Route::get('/searchByTitle', [HomeController::class, 'searchByTitle'])->name('searchByTitle');
+Route::get('/searchByCity', [HomeController::class, 'searchByCity'])->name('searchByCity');
 Route::resource('UserOffer', UserOfferController::class);
 
 
 
 
-
+//Admin Route
 Route::resource('adminCompany', AdminComController::class);
 Route::resource('adminCity', AdminCityController::class);
 Route::resource('adminOffer', AdminOfferController::class);
@@ -77,7 +70,7 @@ Route::put('adminOffer/{Id}/change-status', [AdminOfferController::class, 'chang
 
 
 
-
+//Representative Route
 Route::resource('representative', RepresentativeController::class);
 Route::put('/representative/{userId}/change-status', [RepresentativeController::class, 'changeStatus'])->name('representative.changeStatus');
 Route::get('/representativeEntr', [RepresentativeController::class, 'entrepreneur'])->name('representativeEntr');
@@ -92,7 +85,7 @@ Route::put('/requests/{Id}/change-status', [RepresentativeOfferController::class
 
 
 
-
+//Entrepreneur Route
 Route::resource('entrepreneur', EntrepreneurController::class);
 Route::resource('entrepreneurOffer', EntrepreneurOfferController::class);
 Route::resource('entrepreneurExperience', EntrepreneurExpController::class);

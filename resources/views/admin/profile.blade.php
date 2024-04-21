@@ -59,7 +59,7 @@
     </div>
         <div class="row mt-5">
             <div class="col-12">
-                <h2 class="text-center mb-4" style="color: #333; font-weight: bold;">Experiences</h2>
+                <h4 class="text-center mb-4" style="color: #333; font-weight: bold;">Experiences</h4>
             </div>
         </div>
         <div class="row mt-3">
@@ -77,7 +77,7 @@
                 <div class="row align-items-center">
                     <div class="col">
                         <h5 class="card-title">{{ $experience->name }}</h5>
-                        <span class="text-muted">{{ $experience->start_date }} | {{ $experience->end_date }}</span>
+                        <span class="text-muted ">{{ $experience->start_date }} | {{ $experience->end_date }}</span>
                         <p class="card-text mt-3">{{ $experience->company_name }}</p>
                         <p class="card-text">{{ $experience->task }}</p>
                         <p class="card-text">{{ $experience->description }}</p>
@@ -192,7 +192,7 @@
 <!-- Add Formation Button -->
 <div class="row mt-5">
     <div class="col-12">
-        <h2 class="text-center mb-4" style="color: #333; font-weight: bold;">Formation</h2>
+        <h4 class="text-center mb-4" style="color: #333; font-weight: bold;">Formation</h4>
     </div>
 </div>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
@@ -297,7 +297,7 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col-12">
-            <h2 class="text-center mb-4" style="color: #333; font-weight: bold;">Skills</h2>
+            <h4 class="text-center mb-4" style="color: #333; font-weight: bold;">Skills</h4>
         </div>
     </div>
 

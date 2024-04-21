@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\City;
 use App\Models\User;
 use App\Models\Offer;
@@ -58,47 +57,56 @@ class HomeController extends Controller
         ->paginate(6);
            return view('companyDetails',compact('company','employees','Alloffers','cities','domains','domains','offers'));
     }
-    public function search(Request $request)
+    public function searchByTitle(Request $request)
     {
         $query = $request->input('query');
-        $domain = $request->input('domain');
-
-
         $offerQuery = Offer::query();
-
         if ($query) {
             $offerQuery->where(function ($queryBuilder) use ($query) {
                 $queryBuilder->where('title', 'like', "%$query%");
             });
         }
-
-
-        if ($domain && $domain != 0) {
-            $offerQuery->whereHas('domain', function ($queryBuilder) use ($domain) {
-                $queryBuilder->where('id', $domain);
-            });
-
-        }
         $offers = $offerQuery->get();
-
-        $eventData = [];
-
         foreach ($offers as $offer) {
             $offerData[] = [
                 'title' => $offer->title,
-                'description' => $offer->description,
+                'description' =>  strlen($offer->description) > 50 ? substr($offer->description, 0, 50) . '...' : $offer->description,
                 'domain' => $offer->domain->name,
                 'company' => $offer->company->name,
                 'city' => $offer->city->name,
                 'imageUrl' =>  $offer->company->getFirstMediaUrl('company'),
+                'created_at' => $offer->created_at->diffForHumans()
+            ];
+        }
+        return response()->json($offerData);
+    }
+
+    public function searchByCity(Request $request)
+    {
+        $query = $request->input('query');
+
+
+        $offerQuery = Offer::query();
+
+        if ($query) {
+            $offerQuery->whereHas('city', function ($queryBuilder) use ($query) {
+                $queryBuilder->where('name', 'like', "%$query%");
+            });
+        }
+
+        $offers = $offerQuery->get();
+        foreach ($offers as $offer) {
+            $offerData[] = [
+                'title' => $offer->title,
+                'description' =>  strlen($offer->description) > 50 ? substr($offer->description, 0, 50) . '...' : $offer->description,
+                'domain' => $offer->domain->name,
+                'company' => $offer->company->name,
+                'city' => $offer->city->name,
+                'imageUrl' =>  $offer->company->getFirstMediaUrl('company'),
+                'created_at' => $offer->created_at->diffForHumans()
             ];
         }
 
         return response()->json($offerData);
-
-
-
-
-
     }
 }

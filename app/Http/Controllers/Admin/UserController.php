@@ -25,7 +25,17 @@ class UserController extends Controller
         return view('admin.user', compact('users'));
     }
 
+    public function edit()
+    {
+        $user = Auth::user();
 
+        $experiences = Experience::where('user_id', $user->id)->get();
+        $allSkills = Skill::all();
+        $user->load('formations');
+        $user->load('skills');
+
+        return view('admin.profile', compact('user', 'experiences', 'allSkills'));
+    }
 
     public function show($userId)
     {
