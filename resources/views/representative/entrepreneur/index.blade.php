@@ -1,6 +1,5 @@
 <x-dashboard>
     <div class="container px-6 mx-auto grid">
-
         <!-- New Table -->
         <div class="w-full overflow-hidden rounded-lg shadow-xs  mt-5">
             <div class="w-full overflow-x-auto">
@@ -41,7 +40,7 @@
                                     </span>
                                 </td>
                                 <td class="px-4 py-3 text-xs">
-                                    <a href="{{ route('representative.edit', $user->id) }}" class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                                    <a href="{{ route('adminUser.show', $user->id) }}" class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
                                         <script src="https://cdn.lordicon.com/lordicon.js"></script>
                                         <lord-icon
                                             src="https://cdn.lordicon.com/vfczflna.json"

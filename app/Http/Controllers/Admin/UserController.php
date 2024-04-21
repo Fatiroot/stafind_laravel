@@ -25,20 +25,18 @@ class UserController extends Controller
         return view('admin.user', compact('users'));
     }
 
-    public function edit()
-    {
-        $user = Auth::user();
 
+
+    public function show($userId)
+    {
+        $user = User::findOrFail($userId);
         $experiences = Experience::where('user_id', $user->id)->get();
         $allSkills = Skill::all();
         $user->load('formations');
         $user->load('skills');
 
-        return view('admin.profile', compact('user', 'experiences', 'allSkills'));
+        return view('representative.entrepreneur.profile', compact('user', 'experiences', 'allSkills'));
     }
-
-
-
     public function changeStatus($Userid)
     {
         $user = User::findOrFail($Userid);
