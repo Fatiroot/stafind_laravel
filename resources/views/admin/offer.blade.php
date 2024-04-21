@@ -77,7 +77,6 @@
                                     </div>
                                 </div>
                             </td>
-
                             <script>
                                 // Add event listener to the eye icon to show the modal
                                 document.getElementById('eyeIcon{{ $offer->id }}').addEventListener('click', function() {

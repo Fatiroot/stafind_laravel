@@ -72,7 +72,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('representative.index')->with('success', 'Profile updated successfully.');
+        return redirect()->back()->with('success', 'Profile Updated  successfully');
     }
 
 
@@ -106,6 +106,6 @@ class UserController extends Controller
         return back()->with('success', 'User deleted successfully.');
     }
 
-   
+
 
 }

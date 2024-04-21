@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
-use App\Models\Company;
-use App\Models\Offer;
-use App\Models\Domain;
 use App\Models\User;
+use App\Models\Offer;
+use App\Models\Skill;
+use App\Models\Domain;
+use App\Models\Company;
+use App\Models\Experience;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,6 +24,20 @@ class HomeController extends Controller
          $offers = Offer::where('status', 0)->take(6)->get();
         return view('welcome', compact('offers','cities','domains','companies'));
     }
+
+
+    public function edit()
+    {
+        $user = Auth::user();
+
+        $experiences = Experience::where('user_id', $user->id)->get();
+        $allSkills = Skill::all();
+        $user->load('formations');
+        $user->load('skills');
+
+        return view('profile', compact('user', 'experiences', 'allSkills'));
+    }
+
     public function allCompanies()
     {
         $companies = Company::paginate(6);
@@ -62,7 +79,6 @@ class HomeController extends Controller
             });
 
         }
-
         $offers = $offerQuery->get();
 
         $eventData = [];

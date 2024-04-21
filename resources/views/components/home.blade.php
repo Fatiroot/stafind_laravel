@@ -33,12 +33,14 @@
             <li class="nav-item"><a href="{{ route('allCompanies') }}" class="nav-link">Companies</a></li>
 
             @auth
+            <li class="nav-item"><a href="{{ route('home.edit', Auth::id()) }}" class="nav-link">Profile</a></li>
+        </li>
             <li class="nav-item">
                 <form method="POST" action="{{ route('logout') }}" class="flex items-center">
                     @csrf
                     <button type="submit" class="form-control btn btn-primary" style="">Sign Out</button>
                 </form>
-            </li>
+
             @else
             <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Get Started</a></li>
             @endauth
