@@ -2,7 +2,7 @@
 @extends('layouts.layout')
 @section('content')
   <main class="main-content  mt-0">
-    <section class="min-vh-100 mb-8">
+    <section class="min-vh-100">
       <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('assets/img/curved-images/curved14.jpg');">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
@@ -24,22 +24,24 @@
               <div class="card-body">
                 <form id="signUpForm" role="form text-left"  method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                   @csrf
-                              <!-- step one -->
+                   <!-- step one -->
 
                    <div class="step">
-                    <div class="row px-xl-5 px-sm-4 px-3 text-gray-900 font-medium text-xs text-center flex flex-col items-center justify-center">
-                <label for="image-input" class="cursor-pointer">
-                  <img id="preview-image" class="h-40 w-40 rounded-full shadow-xl border-2 border-gray-300"
-                      src="{{ URL::asset('img/user.jpg') }}" alt="user image">
-              </label>
-              <input type="file" id="image-input" name="image" class="hidden" onchange="previewImage(event)"
-                  required>
-                <div class="mt-2 position-relative text-center">
-                  <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">
-                    Create your account
-                  </p>
-                </div>
-              </div>
+                    <div class="row px-xl-5 px-sm-4 px-3 text-gray-900 font-medium text-xs text-center">
+                        <div class="col-12 col-md-6 offset-md-3">
+                            <div class="text-center">
+                                <label for="image-input" class="cursor-pointer d-flex justify-content-center align-items-center rounded-circle border border-secondary p-1" style="width: 130px; height: 130px; overflow: hidden;">
+                                    <img id="preview-image" class="h-100 w-auto mx-auto" src="{{ URL::asset('img/user.jpg') }}" alt="user image">
+                                    <input type="file" id="image-input" name="image" class="hidden" onchange="previewImage(event)" required>
+                                </label>
+                            </div>
+                        </div>
+                            <div class="mt-2 mb-2 text-center">
+                                <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline bg-white px-3">
+                                    Create your account
+                                </p>
+                            </div>
+                    </div>
                   <div class="mb-3">
                     <input type="text" name="fullname" class="form-control" placeholder="FullName" aria-label="Name" aria-describedby="email-addon" required>
                     <div id="email_error" style="color: red"></div>
@@ -78,29 +80,33 @@
 
                     </div>
                     </div>
-                    <div class="mb-6" id="companySelect" style="display: none;">
-                      <label class="block text-gray-700 font-medium mb-2">Select Your Company</label>
-                      <select name="company_id"
-                          class="w-full px-4 py-3 rounded-md text-gray-700 font-medium border-solid border-2 border-gray-200">
-                          @foreach ($companies as $company)
-                              <option value="{{ $company['id'] }}">{{ $company['name'] }}</option>
-                          @endforeach
-                      </select>
-                  </div>
+                    <div class="mb-3 text-center">
+                        <div id="companySelect" style="display: none;">
+                            <select name="company_id" class="w-full rounded-md border-gray-200 p-2" style="width: 100%;" >
+                                <option value="">Select domain</option>
+                                @foreach ($companies as $company)
+                                    <option value="{{ $company['id'] }}">{{ $company['name'] }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                   <div class="mb-3" id="companyDetails" style="display: none;">
                     <div class="mt-2 position-relative text-center">
                       <p class="text-sm font-weight-bold mb-2 text-secondary text-border d-inline z-index-2 bg-white px-3">
                         Your company details
                        </p>
                     </div>
-                      <div class="text-gray-900 font-medium text-xs text-center flex flex-col items-center justify-center">
-                          <label for="logo-input" class="cursor-pointer">
-                              <img id="logo-preview-image" class="h-40 w-40 rounded-full shadow-xl border-2 border-gray-400"
-                                  src="{{ URL::asset('img/company.jpg') }}" alt="user image">
-                          </label>
-                          <input type="file" id="logo-input" name="logo" class="hidden" onchange="logopreviewImage(event)"
-                              required>
-                      </div>
+                    <div class="row justify-content-center text-gray-900 font-medium text-xs text-center">
+                        <div class="col-12 col-md-6">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <label for="logo-input" class="cursor-pointer d-flex justify-content-center align-items-center rounded-circle border border-secondary p-1" style="width: 130px; height: 130px; overflow: hidden;">
+                                    <img id="logo-preview-image" class="h-100 w-auto" src="{{ URL::asset('img/company.jpg') }}" alt="company logo">
+                                    <input type="file" id="logo-input" name="logo" class="hidden" onchange="logopreviewImage(event)" required>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                       <div class="mb-3">
                         <input type="text" name="name" class="form-control" placeholder="company name" aria-label="name" aria-describedby="password-addon" required>
                       </div>
@@ -111,18 +117,15 @@
                         <input type="text" name="description" class="form-control" placeholder="company description" aria-label="description" aria-describedby="password-addon" required>
                       </div>
                       <div class="mb-3">
-                          <select class="js-example-basic-multiple select2 w-full px-4 py-3 rounded-md text-gray-700 font-medium border-solid border-2 border-gray-200" name="sectors[]" multiple="multiple" style="width: 100%;">
-                              @foreach ($sectors as $sector)
-                                  <option value="{{ $sector->id }}" >
-                                      {{ $sector->label }}
-                                  </option>
-                              @endforeach
-                          </select>
-                      </div>
-
+                        <select class="js-example-basic-multiple w-full rounded-md border-gray-200" name="sectors[]" multiple="multiple" style="width: 100%;">
+                            <option value="">Select sectors</option>
+                            @foreach ($sectors as $sector)
+                                <option value="{{ $sector->id }}">{{ $sector->label }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                   </div>
                 </div>
-
                   <div class="text-center">
                     <button type="button" id="prevBtn"
                     class="btn bg-gradient-dark w-100 my-4 mb-2 flex-1 "
@@ -269,7 +272,11 @@
         }
     }
 </script>
-
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+</script>
 <script>
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirm_password');

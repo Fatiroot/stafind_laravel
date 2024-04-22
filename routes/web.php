@@ -57,6 +57,7 @@ Route::resource('UserOffer', UserOfferController::class);
 
 
 //Admin Route
+Route::middleware('admin')->group(function () {
 Route::resource('adminCompany', AdminComController::class);
 Route::resource('adminCity', AdminCityController::class);
 Route::resource('adminOffer', AdminOfferController::class);
@@ -66,7 +67,7 @@ Route::get('adminDashboard', [AdminUserController::class,'showStatistic'])->name
 Route::put('adminUser', [AdminUserController::class,'updateStatus'])->name('updateStatus');
 Route::put('adminUser/{Id}/change-status', [AdminUserController::class, 'changeStatus'])->name('admin.changeStatus');
 Route::put('adminOffer/{Id}/change-status', [AdminOfferController::class, 'changeStatus'])->name('adminOffer.changeStatus');
-
+});
 
 
 
