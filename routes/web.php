@@ -87,10 +87,11 @@ Route::put('/requests/{Id}/change-status', [RepresentativeOfferController::class
 
 
 //Entrepreneur Route
+Route::middleware('entrepreneur')->group(function () {
 Route::resource('entrepreneur', EntrepreneurController::class);
 Route::resource('entrepreneurOffer', EntrepreneurOfferController::class);
 Route::resource('entrepreneurExperience', EntrepreneurExpController::class);
 Route::resource('entrepreneurFormation', EntrepreneurForController::class);
 Route::resource('entrepreneurSkill', EntrepreneurSkillController::class);
 Route::get('/requestsEntr/{offerId}', [EntrepreneurOfferController::class, 'getRequests'])->name('requestsEntr');
-
+});
