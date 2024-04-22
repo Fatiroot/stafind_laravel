@@ -72,6 +72,7 @@ Route::put('adminOffer/{Id}/change-status', [AdminOfferController::class, 'chang
 
 
 //Representative Route
+Route::middleware('representative')->group(function () {
 Route::resource('representative', RepresentativeController::class);
 Route::put('/representative/{userId}/change-status', [RepresentativeController::class, 'changeStatus'])->name('representative.changeStatus');
 Route::get('/representativeEntr', [RepresentativeController::class, 'entrepreneur'])->name('representativeEntr');
@@ -82,7 +83,7 @@ Route::resource('representativeFormation', RepresentativeForController::class);
 Route::resource('representativeSkill', RepresentativeSkillController::class);
 Route::get('/requestsRep/{offerId}', [RepresentativeOfferController::class, 'getRequests'])->name('requestsRep');
 Route::put('/requests/{Id}/change-status', [RepresentativeOfferController::class, 'changeStatus'])->name('RequestchangeStatus');
-
+});
 
 
 
