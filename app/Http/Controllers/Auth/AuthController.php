@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\Models\User;
 use App\Models\Sector;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\DB;
 use \App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -20,55 +20,59 @@ class AuthController extends Controller
         return view('auth.register', compact('companies','sectors'));
     }
 
-    public function register(Request $request)
-{
-    // Créer un utilisateur avec les données de la requête
-    // dd($request);
-    $user = User::create([
-        'fullname' => $request->fullname,
-        'email' => $request->email,
-        'password' => bcrypt($request->password),
-        'status' => 1,
-        'address' => $request->address,
-        'phone' => $request->phone,
-    ]);
-    if ($request->hasFile('image')) {
-        $user->addMedia($request->file('image'))->toMediaCollection('user');
-    }
-    if ($request->role == 4) {
-        $user->roles()->attach(4);
-        $user->status = 0;
-        $company = Company::create([
-            'name' => $request->name,
-            'location' => $request->location,
-            'description' => $request->description,
-        ]);
-        if ($request->hasFile('logo')) {
-            $company->addMedia($request->file('logo'))->toMediaCollection('company');
-        }
-        $user->company()->associate($company);
-        if ($request->has('sectors')) {
-            foreach ($request->input('sectors') as $sectorId) {
-                $sector = Sector::find($sectorId);
 
-                if ($sector) {
-                    $company->sectors()->attach($sector->id);
+public function register(UserRequest $request)
+{
+    $validated = $request->all();
+
+        $user = User::create([
+            'fullname' => $validated['fullname'],
+            'email' => $validated['email'],
+            'password' => bcrypt($validated['password']),
+            'status' => 1,
+            'address' => $validated['address'],
+            'phone' => $validated['phone'],
+        ]);
+
+        if ($request->hasFile('image')) {
+            $user->addMedia($request->file('image'))->toMediaCollection('user');
+        }
+
+        if ($validated['role'] == 4) {
+            $user->roles()->attach(4);
+            $user->status = 0;
+
+            $company = Company::create([
+                'name' => $validated['name'],
+                'location' => $validated['location'],
+                'description' => $validated['description'],
+            ]);
+
+            if ($request->hasFile('logo')) {
+                $company->addMedia($request->file('logo'))->toMediaCollection('company');
+            }
+
+            $user->company()->associate($company);
+
+            if (isset($validated['sectors'])) {
+                foreach ($validated['sectors'] as $sectorId) {
+                    $sector = Sector::find($sectorId);
+                    if ($sector) {
+                        $company->sectors()->attach($sector->id);
+                    }
                 }
             }
+        } elseif ($validated['role'] == 3) {
+            $user->roles()->attach(3);
+            $user->company_id = $validated['company_id'];
+            $user->status = 0;
+        } else {
+            $user->roles()->attach(2);
         }
-    }
-    elseif ($request->role == 3) {
-        $user->roles()->attach(3);
-        $user->company_id = $request->company_id;
-        $user->status = 0;
-    }
-    else {
-        $user->roles()->attach(2);
-    }
 
-    $user->save();
+        $user->save();
+        return redirect()->route('login');
 
-    return redirect()->route('login');
 }
 
 
