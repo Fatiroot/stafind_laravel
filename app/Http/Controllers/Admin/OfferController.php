@@ -14,7 +14,7 @@ class OfferController extends Controller
     public function index()
     {
 
-        $offers = Offer::all();
+        $offers = Offer::paginate(6);
         return view('admin.offer', compact('offers'));
     }
 

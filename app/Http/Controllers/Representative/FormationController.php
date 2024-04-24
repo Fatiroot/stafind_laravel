@@ -26,16 +26,7 @@ class FormationController extends Controller
 
 
 
-   public function show(formation $formation)
-   {
-       return view('formations.update', compact('formation'));
-   }
-
-   public function edit(formation $formation)
-   {
-       return view('formations.update', compact('formation'));
-   }
-
+   
    public function update(FormationUpdateRequest $request, $id)
    {
        $formation= Formation::findOrFail($id);

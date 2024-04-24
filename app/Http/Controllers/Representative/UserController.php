@@ -44,6 +44,17 @@ class UserController extends Controller
 
         return view('representative.index', compact(['users','usersbannedCount','usersCount','offerCount','requestCount']));
     }
+
+    public function show($userId)
+    {
+        $user = User::findOrFail($userId);
+        $experiences = Experience::where('user_id', $user->id)->get();
+        $allSkills = Skill::all();
+        $user->load('formations');
+        $user->load('skills');
+
+        return view('representative.entrepreneur.profile', compact('user', 'experiences', 'allSkills'));
+    }
     public function edit()
     {
         $user = Auth::user();

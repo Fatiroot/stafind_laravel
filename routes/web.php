@@ -12,12 +12,10 @@ use App\Http\Controllers\Entrepreneur\UserController as EntrepreneurController;/
 use App\Http\Controllers\Representative\OfferController as RepresentativeOfferController;//allias
 use App\Http\Controllers\Entrepreneur\OfferController as EntrepreneurOfferController;//allias
 use App\Http\Controllers\Representative\CompanyController as RepresentativeComController;//allias
+use App\Http\Controllers\Entrepreneur\CompanyController as EntrepreneurComController;//allias
 use App\Http\Controllers\Representative\ExperienceController as RepresentativeExpController;//allias
-use App\Http\Controllers\Entrepreneur\ExperienceController as EntrepreneurExpController;//allias
 use App\Http\Controllers\Representative\FormationController as RepresentativeForController;//allias
-use App\Http\Controllers\Entrepreneur\FormationController as EntrepreneurForController;//allias
 use App\Http\Controllers\Representative\SkillController as RepresentativeSkillController;//allias
-use App\Http\Controllers\Entrepreneur\SkillController as EntrepreneurSkillController;//allias
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\UserOfferController;
 
@@ -78,21 +76,19 @@ Route::put('/representative/{userId}/change-status', [RepresentativeController::
 Route::get('/representativeEntr', [RepresentativeController::class, 'entrepreneur'])->name('representativeEntr');
 Route::resource('representativeCompany', RepresentativeComController::class);
 Route::resource('representativeOffer', RepresentativeOfferController::class);
-Route::resource('representativeExperience', RepresentativeExpController::class);
-Route::resource('representativeFormation', RepresentativeForController::class);
-Route::resource('representativeSkill', RepresentativeSkillController::class);
 Route::get('/requestsRep/{offerId}', [RepresentativeOfferController::class, 'getRequests'])->name('requestsRep');
 Route::put('/requests/{Id}/change-status', [RepresentativeOfferController::class, 'changeStatus'])->name('RequestchangeStatus');
 });
 
-
+//Crud of Experience/Formation/Skills
+Route::resource('representativeExperience', RepresentativeExpController::class);
+Route::resource('representativeFormation', RepresentativeForController::class);
+Route::resource('representativeSkill', RepresentativeSkillController::class);
 
 //Entrepreneur Route
 Route::middleware('entrepreneur')->group(function () {
 Route::resource('entrepreneur', EntrepreneurController::class);
+Route::resource('entrepreneurCompany', EntrepreneurComController::class);
 Route::resource('entrepreneurOffer', EntrepreneurOfferController::class);
-Route::resource('entrepreneurExperience', EntrepreneurExpController::class);
-Route::resource('entrepreneurFormation', EntrepreneurForController::class);
-Route::resource('entrepreneurSkill', EntrepreneurSkillController::class);
 Route::get('/requestsEntr/{offerId}', [EntrepreneurOfferController::class, 'getRequests'])->name('requestsEntr');
 });

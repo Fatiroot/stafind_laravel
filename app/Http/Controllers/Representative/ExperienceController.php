@@ -30,18 +30,6 @@ class ExperienceController extends Controller
 
      }
 
-
-
-    public function show(Experience $experience)
-    {
-        return view('experiences.update', compact('experience'));
-    }
-
-    public function edit(Experience $experience)
-    {
-        return view('experiences.update', compact('experience'));
-    }
-
     public function update(ExperienceUpdateRequest $request, $id)
     {
         $experience= Experience::findOrFail($id);

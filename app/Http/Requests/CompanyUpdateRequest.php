@@ -24,10 +24,10 @@ class CompanyUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'sometimes|string|max:255',
-            'location' => 'sometimes|string|max:255',
-            'description' => 'sometimes|string',
-            'logo'=> 'required|mimes:jpg,jpeg,png,gif',
+           'name' => 'required|string|max:255',
+           'location' => 'required|string|max:255',
+           'description' => 'required|string|max:255',
+           'logo'=> 'required|mimes:jpg,jpeg,png,gif',
         ];
     }
 }

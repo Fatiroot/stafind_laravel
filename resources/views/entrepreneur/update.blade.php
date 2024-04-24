@@ -141,7 +141,7 @@
                                             <!-- Modal body -->
                                             <div class="p-4 md:p-5">
                                                 <form class="space-y-4"
-                                                    action="{{ route('entrepreneurExperience.update', $experience->id) }}"
+                                                    action="{{ route('representativeExperience.update', $experience->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('PUT')
@@ -214,7 +214,7 @@
                                 </div>
                                 <!-- Delete Icon -->
                                 <form
-                                    action="{{ route('entrepreneurExperience.destroy', $experience->id) }}"
+                                    action="{{ route('representativeExperience.destroy', $experience->id) }}"
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -274,7 +274,7 @@
                             </div>
                             <!-- Modal body -->
                             <div class="p-4 md:p-5">
-                                <form class="space-y-4" action="{{ route('entrepreneurExperience.store') }}"
+                                <form class="space-y-4" action="{{ route('representativeExperience.store') }}"
                                     method="POST">
                                     @csrf
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
@@ -411,7 +411,7 @@
                                         <!-- Modal body -->
                                         <div class="p-4 md:p-5">
                                             <form class="space-y-4"
-                                                action="{{ route('entrepreneurFormation.update', $formation->id) }}"
+                                                action="{{ route('representativeFormation.update', $formation->id) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('PUT')
@@ -468,7 +468,7 @@
                             </div>
                             <!-- Delete Icon -->
                             <form
-                                action="{{ route('entrepreneurFormation.destroy', $formation->id) }}"
+                                action="{{ route('representativeFormation.destroy', $formation->id) }}"
                                 method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -521,7 +521,7 @@
                         </div>
                         <!-- Modal body -->
                         <div class="p-4 md:p-5">
-                            <form class="space-y-4" action="{{ route('entrepreneurFormation.store') }}"
+                            <form class="space-y-4" action="{{ route('representativeFormation.store') }}"
                                 method="POST">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ $user->id }}">
@@ -637,7 +637,7 @@
                                             <!-- Modal body -->
                                             <div class="p-4 md:p-5">
                                                 <form class="space-y-4"
-                                                    action="{{ route('entrepreneurSkill.update', $skill->id) }}"
+                                                    action="{{ route('representativeSkill.update', $skill->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('PUT')
@@ -663,7 +663,7 @@
                                 </div>
                                 <!-- Delete Icon -->
                                 <form
-                                    action="{{ route('entrepreneurSkill.destroy', $skill->id) }}"
+                                    action="{{ route('representativeSkill.destroy', $skill->id) }}"
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -709,7 +709,7 @@
                             </div>
                             <!-- Modal body -->
                             <div class="p-4 md:p-5">
-                                <form class="space-y-4" action="{{ route('entrepreneurSkill.store') }}"
+                                <form class="space-y-4" action="{{ route('representativeSkill.store') }}"
                                     method="POST">
                                     @csrf
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">

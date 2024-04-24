@@ -10,7 +10,7 @@ class DomainController extends Controller
 {
     public function index()
     {
-        $domains = Domain ::all();
+        $domains = Domain ::paginate(6);
 
         return view('admin.domain', compact('domains'));
     }

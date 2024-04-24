@@ -70,6 +70,8 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $cities->links() }}
+
                 </div>
             </div>
     </div>

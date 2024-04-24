@@ -30,6 +30,7 @@ class UserController extends Controller
         ->count();
         return view('entrepreneur.index', compact(['users','offerCount','requestCount']));
     }
+    
     public function edit()
     {
         $user = Auth::user();
@@ -58,7 +59,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('entrepreneur.index')->with('success', 'Profile updated successfully.');
+        return redirect()->back()->with('success', 'Profile Updated  successfully');
     }
 
 

@@ -27,16 +27,7 @@ class SkillController extends Controller
 
 
 
-   public function show(skill $skill)
-   {
-       return view('skills.update', compact('skill'));
-   }
-
-   public function edit(skill $skill)
-   {
-       return view('skills.update', compact('skill'));
-   }
-
+  
    public function update(SkillUpdateRequest $request, $id)
    {
        $skill= Skill::findOrFail($id);

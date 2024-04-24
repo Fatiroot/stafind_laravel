@@ -6,7 +6,7 @@
             <h6 class="card-title">Personal Information</h6>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route('representative.update', $user->id) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('adminUser.update', $user->id) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

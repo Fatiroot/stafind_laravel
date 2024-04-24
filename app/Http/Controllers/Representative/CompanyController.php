@@ -22,12 +22,11 @@ class CompanyController extends Controller
     }
 
 
-    public function update(CompanyUpdateRequest $request)
+    public function update(Request $request)
     {
         $company = Company::where('id', $request->input('company_id'))
             ->firstOrFail();
-        $company->update($request->validated());
-
+        $company->update($request->all());
         if ($request->hasFile('logo')) {
             $company->clearMediaCollection('company');
             $company->addMediaFromRequest('logo')->toMediaCollection('company');
@@ -35,10 +34,11 @@ class CompanyController extends Controller
         return redirect()->back()->with('success', 'Company updated successfully.');
     }
 
+
     public function destroy(Company $company)
     {
         $company->delete();
-        return redirect()->route('companies.index')->with('success', 'Company deleted successfully.');
+        return redirect()->back()->with('success', 'Company updated successfully.');
     }
 
 }

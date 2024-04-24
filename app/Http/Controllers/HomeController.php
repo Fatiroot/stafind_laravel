@@ -36,6 +36,24 @@ class HomeController extends Controller
 
         return view('profile', compact('user', 'experiences', 'allSkills'));
     }
+    public function update(Request $request,)
+    {
+        $user = Auth::user();
+
+        $user->fullname = $request->fullname;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        if ($request->hasFile('image')) {
+            $user->clearMediaCollection('user');
+            $user->addMedia($request->file('image'))->toMediaCollection('user');
+        }
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'Profile Updated  successfully');
+    }
 
     public function allCompanies()
     {

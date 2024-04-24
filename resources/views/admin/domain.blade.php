@@ -68,6 +68,8 @@
                         </tbody>
                         @endforeach
                     </table>
+                    {{ $domains->links() }}
+
                 </div>
             </div>
         </div>

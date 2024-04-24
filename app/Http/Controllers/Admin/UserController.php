@@ -20,11 +20,10 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User ::all();
+        $users = User ::paginate(6);
 
         return view('admin.user', compact('users'));
     }
-
     public function edit()
     {
         $user = Auth::user();
@@ -45,7 +44,25 @@ class UserController extends Controller
         $user->load('formations');
         $user->load('skills');
 
-        return view('representative.entrepreneur.profile', compact('user', 'experiences', 'allSkills'));
+        return view('admin.profile', compact('user', 'experiences', 'allSkills'));
+    }
+    public function update(Request $request,)
+    {
+        $user = Auth::user();
+
+        $user->fullname = $request->fullname;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        if ($request->hasFile('image')) {
+            $user->clearMediaCollection('user');
+            $user->addMedia($request->file('image'))->toMediaCollection('user');
+        }
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'Profile Updated  successfully');
     }
     public function changeStatus($Userid)
     {

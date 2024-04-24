@@ -3,7 +3,7 @@
         <h1 class=" text-3xl font-bold mb-10 pt-5 text-center" style="color: rgb(130, 58, 208)">Edit Company</h1>
 
         <form method="POST" action="{{ route('representativeCompany.update', $company->id) }}"
-            enctype="multipart/form-data"class="w-full max-w-xl  mx-auto bg-white rounded shadow-xl relative pb-4">
+            enctype="multipart/form-data" class="w-full max-w-xl  mx-auto bg-white rounded shadow-xl relative pb-4">
             @csrf
             @method('PUT')
             <input type="hidden" name="company_id" value="{{ $company->id}}">
@@ -23,8 +23,8 @@
                             class="w-full h-10 px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-violet-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none focus:bg-white">
                     </div>
                     <div class="mb-1 p-2">
-                        <label for="localisation">Localisation</label>
-                        <input id="localisation" name="location" type="text" placeholder="location"
+                        <label for="location">location</label>
+                        <input id="location" name="location" type="text" placeholder="location"
                             value="{{ $company->location }}"
                             class="w-full h-10 px-2 py-1 lg:px-4 lg:py-2 text-gray-700 bg-violet-100 text-xs lg:text-sm border border-gray-300 rounded-lg focus:outline-none focus:bg-white">
                     </div>
