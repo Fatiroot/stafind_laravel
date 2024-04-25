@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use App\Models\Offer;
 use Illuminate\Http\Request;
 use App\Mail\MailDetailsOffer;
@@ -18,14 +19,31 @@ class OfferController extends Controller
         return view('admin.offer', compact('offers'));
     }
 
-    public function changeStatus($Id)
+    public function changeStatus($id)
     {
-        $offer = Offer::findOrFail($Id);
+        try {
+            // Find the offer by ID and update its status to 0
+            $offer = Offer::findOrFail($id);
             $offer->update(['status' => 0]);
+
+            // Find all users with status 1 and role named "candidate"
+            $users = User::where('status', 1)
+                ->whereHas('roles', function ($query) {
+                    $query->where('name', 'candidate');
+                })
+                ->get();
+
+            foreach ($users as $user) {
+                Mail::to($user->email)->send(new MailDetailsOffer($offer));
+            }
+
             Mail::to($offer->user->email)->send(new MailConfirmationOffer($offer));
-            Mail::to($offer->user->email)->send(new MailDetailsOffer($offer));
-            return redirect()->back()->with('success', 'status changed  successfully');
+
+            // Redirect back with success message
+            return redirect()->back()->with('success', 'Status changed successfully');
+        } catch (\Exception $e) {
+            // Handle any exceptions (e.g., offer not found)
+            return redirect()->back()->with('error', 'Failed to change status: ' . $e->getMessage());
+        }
     }
-
-
 }

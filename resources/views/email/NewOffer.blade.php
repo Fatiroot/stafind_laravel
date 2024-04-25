@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Nouvelle offre disponible</h1>
-    <p>Bonjour {{ $offer->user->fullname }},</p>
+    <p>Bonjour ,</p>
     <p>Une nouvelle offre a été ajoutée sur notre plateforme.</p>
     <p>Voici les détails de la nouvelle offre :</p>
     <ul>
