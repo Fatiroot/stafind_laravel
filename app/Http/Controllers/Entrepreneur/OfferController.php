@@ -38,7 +38,6 @@ class OfferController extends Controller
      */
     public function store(Request $request)
     {
-
            Offer::create($request->all());
             return redirect()->route('entrepreneurOffer.index')->with('success', 'offer created successfully.');
     }

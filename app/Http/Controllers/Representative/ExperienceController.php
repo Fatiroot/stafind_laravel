@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Representative;
 use App\Models\Experience;
-
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use \Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ExperienceStoreRequest;

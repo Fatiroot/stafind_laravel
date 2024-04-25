@@ -2,6 +2,17 @@
 
     <!-- component -->
     <div class=" w-full my-10 mx-auto max-w-6xl">
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold">Oops! Something went wrong.</strong>
+                <ul class="mt-3 list-disc list-inside text-sm">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
             <div class="p-4 col-span-6 md:col-span-4" >
                 <form method="POST" action="{{ route('representative.update', $user->id) }}"
                     enctype="multipart/form-data">
@@ -285,6 +296,7 @@
                                         <input type="text" name="name" id="name"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                                             placeholder="name" required />
+
                                     </div>
                                     <div>
                                         <label for="company_name"
@@ -316,6 +328,7 @@
                                         <input type="date" name="end_date" id="end_date"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray"
                                             required />
+
                                     </div>
                                     <div>
                                         <label for="task"

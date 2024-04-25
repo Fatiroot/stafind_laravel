@@ -8,6 +8,7 @@ use App\Models\Skill;
 use App\Models\Domain;
 use App\Models\Company;
 use App\Models\Experience;
+use App\Models\OfferUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -127,4 +128,6 @@ class HomeController extends Controller
 
         return response()->json($offerData);
     }
+
+ 
 }

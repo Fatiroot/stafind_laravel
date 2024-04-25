@@ -25,8 +25,6 @@ class OfferController extends Controller
             Mail::to($offer->user->email)->send(new MailConfirmationOffer($offer));
             Mail::to($offer->user->email)->send(new MailDetailsOffer($offer));
             return redirect()->back()->with('success', 'status changed  successfully');
-
-
     }
 
 

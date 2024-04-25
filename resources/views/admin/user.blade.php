@@ -63,7 +63,7 @@
 
                             </td>
                             <td style="width: 10%; text-align: center;">
-                                <form action="{{ route('representative.destroy', $user->id) }}" method="POST">
+                                <form action="{{ route('adminUser.destroy', $user->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <input type="hidden" name="id" value="{{ $user->id }}">

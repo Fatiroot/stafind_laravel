@@ -12,7 +12,7 @@
         }
     }
 
-    toggleCompanyDetails(); // Initial state
+    toggleCompanyDetails();
 
     roleRadios.forEach(function(radio) {
         radio.addEventListener('change', toggleCompanyDetails);
@@ -102,10 +102,8 @@ function logopreviewImage(event) {
 // ***********************************************
 
     function validateForm() {
-        // Reset all error messages
         resetErrors();
 
-        // Get form inputs
         var fullname = document.getElementById('fullname').value.trim();
         var email = document.getElementById('email').value.trim();
         var password = document.getElementById('password').value.trim();

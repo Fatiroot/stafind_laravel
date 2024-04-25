@@ -29,4 +29,6 @@ class OfferUser extends Model implements HasMedia
 {
     return $this->belongsTo(User::class);
 }
+
+
 }

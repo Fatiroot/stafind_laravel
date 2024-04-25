@@ -21,13 +21,11 @@ class UserController extends Controller
     public function index()
     {
         $users = User ::paginate(6);
-
         return view('admin.user', compact('users'));
     }
     public function edit()
     {
         $user = Auth::user();
-
         $experiences = Experience::where('user_id', $user->id)->get();
         $allSkills = Skill::all();
         $user->load('formations');
@@ -36,16 +34,6 @@ class UserController extends Controller
         return view('admin.profile', compact('user', 'experiences', 'allSkills'));
     }
 
-    public function show($userId)
-    {
-        $user = User::findOrFail($userId);
-        $experiences = Experience::where('user_id', $user->id)->get();
-        $allSkills = Skill::all();
-        $user->load('formations');
-        $user->load('skills');
-
-        return view('admin.profile', compact('user', 'experiences', 'allSkills'));
-    }
     public function update(Request $request,)
     {
         $user = Auth::user();
@@ -59,7 +47,6 @@ class UserController extends Controller
             $user->clearMediaCollection('user');
             $user->addMedia($request->file('image'))->toMediaCollection('user');
         }
-
         $user->save();
 
         return redirect()->back()->with('success', 'Profile Updated  successfully');
@@ -67,7 +54,6 @@ class UserController extends Controller
     public function changeStatus($Userid)
     {
         $user = User::findOrFail($Userid);
-
         if ($user->status == 1) {
             $user->update(['status' => 0]);
             Mail::to($user->email)->send(new MailUserBanned($user));

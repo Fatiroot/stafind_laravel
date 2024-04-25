@@ -9,6 +9,7 @@ use App\Models\Company;
 use App\Models\OfferUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserOfferController extends Controller
 {
@@ -33,5 +34,16 @@ class UserOfferController extends Controller
         $offer = Offer::findOrFail($offerId);
         return view('ApplyOffer',compact('offer'));
     }
+    public function checkApplied(Request $request, $id)
+    {
+        $userId = Auth::id();
+
+        $userApplied = OfferUser::where('user_id', $userId)
+                                ->where('offer_id', $id)
+                                ->exists();
+
+        return response()->json(['applied' => $userApplied]);
+    }
+
 
 }

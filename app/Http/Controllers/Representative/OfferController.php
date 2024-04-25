@@ -38,9 +38,8 @@ class OfferController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreOfferRequest $request)
     {
-
            Offer::create($request->all());
             return redirect()->route('representativeOffer.index')->with('success', 'offer created successfully.');
     }
@@ -106,7 +105,6 @@ class OfferController extends Controller
 
         $user = $request->user;
         Mail::to($user->email)->send(new AcceptRequest($request));
-
         return redirect()->back()->with('success', 'Status changed successfully');
 
         }

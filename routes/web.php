@@ -2,20 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Admin\CompanyController as AdminComController;//allias
-use App\Http\Controllers\Admin\CityController as AdminCityController;//allias
-use App\Http\Controllers\Admin\DomainController as AdminDomainController;//allias
-use App\Http\Controllers\Admin\UserController as AdminUserController;//allias
-use App\Http\Controllers\Admin\OfferController as AdminOfferController;//allias
-use App\Http\Controllers\Representative\UserController as RepresentativeController;//allias
-use App\Http\Controllers\Entrepreneur\UserController as EntrepreneurController;//allias
-use App\Http\Controllers\Representative\OfferController as RepresentativeOfferController;//allias
-use App\Http\Controllers\Entrepreneur\OfferController as EntrepreneurOfferController;//allias
-use App\Http\Controllers\Representative\CompanyController as RepresentativeComController;//allias
-use App\Http\Controllers\Entrepreneur\CompanyController as EntrepreneurComController;//allias
-use App\Http\Controllers\Representative\ExperienceController as RepresentativeExpController;//allias
-use App\Http\Controllers\Representative\FormationController as RepresentativeForController;//allias
-use App\Http\Controllers\Representative\SkillController as RepresentativeSkillController;//allias
+use App\Http\Controllers\Admin\CompanyController as AdminComController;
+use App\Http\Controllers\Admin\CityController as AdminCityController;
+use App\Http\Controllers\Admin\DomainController as AdminDomainController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\OfferController as AdminOfferController;
+use App\Http\Controllers\Representative\UserController as RepresentativeController;
+use App\Http\Controllers\Entrepreneur\UserController as EntrepreneurController;
+use App\Http\Controllers\Representative\OfferController as RepresentativeOfferController;
+use App\Http\Controllers\Entrepreneur\OfferController as EntrepreneurOfferController;
+use App\Http\Controllers\Representative\CompanyController as RepresentativeComController;
+use App\Http\Controllers\Entrepreneur\CompanyController as EntrepreneurComController;
+use App\Http\Controllers\Representative\ExperienceController as RepresentativeExpController;
+use App\Http\Controllers\Representative\FormationController as RepresentativeForController;
+use App\Http\Controllers\Representative\SkillController as RepresentativeSkillController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\UserOfferController;
 
@@ -50,6 +50,10 @@ Route::get('companies', [HomeController::class,'allCompanies'])->name('allCompan
 Route::get('/searchByTitle', [HomeController::class, 'searchByTitle'])->name('searchByTitle');
 Route::get('/searchByCity', [HomeController::class, 'searchByCity'])->name('searchByCity');
 Route::resource('UserOffer', UserOfferController::class);
+Route::get('/offer/{id}/check-applied', [UserOfferController::class, 'checkApplied'])->name('offer.check-applied');
+
+
+
 
 
 
@@ -62,7 +66,6 @@ Route::resource('adminOffer', AdminOfferController::class);
 Route::resource('adminDomain', AdminDomainController::class);
 Route::resource('adminUser', AdminUserController::class);
 Route::get('adminDashboard', [AdminUserController::class,'showStatistic'])->name('showStatistic');
-Route::put('adminUser', [AdminUserController::class,'updateStatus'])->name('updateStatus');
 Route::put('adminUser/{Id}/change-status', [AdminUserController::class, 'changeStatus'])->name('admin.changeStatus');
 Route::put('adminOffer/{Id}/change-status', [AdminOfferController::class, 'changeStatus'])->name('adminOffer.changeStatus');
 });

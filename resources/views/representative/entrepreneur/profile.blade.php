@@ -59,6 +59,7 @@
                     <h2 class="text-align mb-4 "style="color: #333;font-weight: bold;">Experiences</h2>
                 </div>
             </div>
+            @if (count($experiences) > 0)
             @foreach ($experiences as $experience)
             {{-- card --}}
             <div
@@ -91,11 +92,20 @@
             </div>
             {{-- end-card --}}
         @endforeach
-       <div class="mx-auto grid grid-cols-2 gap-x-8 gap-y-10">
+        @else
+        <div >
+            <div class=" text-blue-700  my-5 " role="alert">
+                <span class="block sm:inline">No experiences.</span>
+            </div>
+        </div>
+         @endif
+        <div class="mx-auto grid grid-cols-2 gap-x-8 gap-y-10">
             <div class="col-span-2 mx-auto">
                 <h2 class="text-align m -4 "style=" color: #333;font-weight: bold";>Formations</h2>
             </div>
         </div>
+        @if (count($user->formations) > 0)
+
         @foreach ($user->formations as $formation)
         {{-- card --}}
         <div
@@ -123,11 +133,21 @@
         </div>
         {{-- end-card --}}
         @endforeach
+        @else
+        <div >
+            <div class=" text-blue-700  my-5 " role="alert">
+                <span class="block sm:inline">No formations.</span>
+            </div>
+        </div>
+      @endif
             <div class="mx-auto grid grid-cols-2 gap-x-8 gap-y-10">
                 <div class="col-span-2 mx-auto">
                     <h2 class="text-align m -4 "style=" color: #333;font-weight: bold">Skills</h2>
                 </div>
             </div>
+
+            @if (count($user->skills) > 0)
+
             @foreach ($user->skills as $skill)
             {{-- card --}}
             <div
@@ -146,6 +166,13 @@
             </div>
             {{-- end-card --}}
             @endforeach
+            @else
+            <div >
+                <div class=" text-blue-700  my-5 " role="alert">
+                    <span class="block sm:inline">No skils.</span>
+                </div>
+            </div>
+          @endif
         </div>
     </div>
   </div>

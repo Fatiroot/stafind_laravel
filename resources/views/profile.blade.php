@@ -2,6 +2,15 @@
 @extends('components.home')
 @section('content')
 <div class="container my-5">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="card">
         <div class="card-header">
             <h6 class="card-title">Personal Information</h6>
@@ -61,7 +70,7 @@
     <div class="container my-5">
         <div class="row">
             <div class="col-12">
-                <h2 class="text-center mb-4" style="color: #333; font-weight: bold;">Experiences</h2>
+                <h4 class="text-center mb-4" style="color: #333; font-weight: bold;">Experiences</h4>
             </div>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
@@ -196,7 +205,7 @@
 <!-- Add Formation Button -->
 <div class="row mt-5">
     <div class="col-12">
-        <h2 class="text-center mb-4" style="color: #333; font-weight: bold;">Formation</h2>
+        <h4 class="text-center mb-4" style="color: #333; font-weight: bold;">Formation</h4>
     </div>
 </div>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
@@ -301,7 +310,7 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col-12">
-            <h2 class="text-center mb-4" style="color: #333; font-weight: bold;">Skills</h2>
+            <h4 class="text-center mb-4" style="color: #333; font-weight: bold;">Skills</h4>
         </div>
     </div>
 

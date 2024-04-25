@@ -27,13 +27,11 @@ class SkillController extends Controller
 
 
 
-  
+
    public function update(SkillUpdateRequest $request, $id)
    {
        $skill= Skill::findOrFail($id);
-
        $skill->update($request->validated());
-
        return back()->with('success', 'skill updated successfully.');
    }
 

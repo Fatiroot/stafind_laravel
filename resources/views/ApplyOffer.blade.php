@@ -59,16 +59,22 @@
             </li>
           </ul>
           <!-- Button trigger modal -->
-          <button type="button" class="btn bg-primary btn-lg text-white mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          @auth
+          <button type="button" class="btn bg-primary btn-lg text-white mt-5" id="applyButton" data-offer-id="{{ $offer->id }}" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $offer->id }}">
             <i class="fas fa-info me-2"></i>  Apply Now
           </button>
+            @else
+            <button type="button" class="btn bg-primary btn-lg text-white mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $offer->id }}">
+                <i class="fas fa-info me-2"></i>  Apply Now
+              </button>
+            @endauth
 
         </div>
     </div>
   </div>
 
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="exampleModal{{ $offer->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -106,7 +112,34 @@
         </div>
       </div>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const applyButton = document.querySelector('#applyButton');
 
+        if (applyButton) { // Check if the button exists on the page
+            const offerId = applyButton.getAttribute('data-offer-id');
 
+            // Make AJAX request to check if user has applied
+            fetch(`/offer/${offerId}/check-applied`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const applied = data.applied;
 
+                    if (applied) {
+                        // User has already applied, disable or change button text
+                        applyButton.disabled = true;
+                        applyButton.textContent = 'Application Submitted';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error checking user application status:', error);
+                });
+        }
+    });
+</script>
 @endsection

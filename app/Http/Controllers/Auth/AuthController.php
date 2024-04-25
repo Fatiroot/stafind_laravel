@@ -6,11 +6,9 @@ use App\Models\Sector;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
-use Illuminate\Support\Facades\DB;
 use \App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -19,12 +17,9 @@ class AuthController extends Controller
         $sectors = Sector::all();
         return view('auth.register', compact('companies','sectors'));
     }
-
-
 public function register(UserRequest $request)
 {
     $validated = $request->all();
-
         $user = User::create([
             'fullname' => $validated['fullname'],
             'email' => $validated['email'],
@@ -83,21 +78,15 @@ public function register(UserRequest $request)
 
     public function login(LoginRequest $request)
     {
-        // Attempt to authenticate the user
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            // Authentication successful
             $user = Auth::user();
-
-            // Set session data for the user
             session([
                 'user_name' => $user->fullname,
                 'user_id' => $user->id,
                 'user_role' => $user->roles->pluck('name')->toArray(),
             ]);
-
-            // Redirect based on the user's roles
             if ($user->hasRole('Admin')) {
-                return redirect()->route('adminUser.index');
+                return redirect()->route('showStatistic');
             } elseif ($user->hasRole('Candidate')) {
                 return redirect()->route('home.index');
             } elseif ($user->hasRole('Entrepreneur')) {
@@ -111,12 +100,11 @@ public function register(UserRequest $request)
                     return redirect()->route('representative.index');
                 } else {
                     return redirect()->route('login')->with('error', 'Invalid credentials');
-                }            } else {
-                // If none of the specified roles match, redirect to the login page
+                }
+             } else {
                 return redirect()->route('login')->with('error', 'Invalid credentials');
             }
         } else {
-            // Authentication failed, return to the login view
             return redirect()->route('login')->with('error', 'Invalid credentials');
         }
     }

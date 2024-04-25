@@ -1,6 +1,15 @@
 @extends('components.dashboardAdmin')
 @section('content')
 <div class="container my-5">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="card">
         <div class="card-header">
             <h6 class="card-title">Personal Information</h6>

@@ -12,13 +12,13 @@ class CityController extends Controller
     public function index()
     {
         $cities = City ::paginate(6);
-
         return view('admin.city', compact('cities'));
     }
 
+
     public function store(Request $request)
     {
-        $cites = City::create($request->all());
+         City::create($request->all());
         return redirect()->back()->with('success', 'City created successfuly');
 
     }
@@ -27,7 +27,6 @@ class CityController extends Controller
     {
         $city = City::findOrFail($id);
         $city->update($request->all());
-
         return redirect()->back()->with('success', 'City updated successfuly');
     }
 

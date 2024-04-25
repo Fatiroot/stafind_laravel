@@ -11,13 +11,12 @@ class DomainController extends Controller
     public function index()
     {
         $domains = Domain ::paginate(6);
-
         return view('admin.domain', compact('domains'));
     }
 
     public function store(Request $request)
     {
-        $domains = Domain::create($request->all());
+        Domain::create($request->all());
         return redirect()->back()->with('success', 'Domain created successfuly');
 
     }
