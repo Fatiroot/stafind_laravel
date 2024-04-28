@@ -29,8 +29,8 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item "><a href="home" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="about" class="nav-link">About</a></li>
+            <li class="nav-item "><a href="{{ route('home.index') }}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
             <li class="nav-item"><a href="{{ route('UserOffer.index') }} "class="nav-link"> Internships</a></li>
             <li class="nav-item"><a href="{{ route('allCompanies') }}" class="nav-link">Companies</a></li>
 

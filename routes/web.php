@@ -31,10 +31,12 @@ use App\Http\Controllers\User\UserOfferController;
 */
 // ----------------------------Authentification ------------------------------//
 Route::controller(AuthController::class)->group(function () {
+    Route::middleware('guest')->group(function () {
     Route::get('register', 'registerView')->name('register');
     Route::post('register', 'register');
     Route::get('login', 'loginView')->name('login');
     Route::post('login', 'login');
+    });
     Route::post('logout', 'logout')->name('logout');
 
 });
@@ -44,7 +46,7 @@ Route::controller(AuthController::class)->group(function () {
 //Home Route
 Route::get('about', function () {
     return view('about');
-});
+})->name('about');
 Route::resource('home', HomeController::class);
 Route::get('companies', [HomeController::class,'allCompanies'])->name('allCompanies');
 Route::get('/searchByTitle', [HomeController::class, 'searchByTitle'])->name('searchByTitle');
@@ -59,7 +61,7 @@ Route::get('/offer/{id}/check-applied', [UserOfferController::class, 'checkAppli
 
 
 //Admin Route
-Route::middleware('admin')->group(function () {
+Route::middleware(['auth','admin'])->group(function () {
 Route::resource('adminCompany', AdminComController::class);
 Route::resource('adminCity', AdminCityController::class);
 Route::resource('adminOffer', AdminOfferController::class);
@@ -73,7 +75,7 @@ Route::put('adminOffer/{Id}/change-status', [AdminOfferController::class, 'chang
 
 
 //Representative Route
-Route::middleware('representative')->group(function () {
+Route::middleware(['auth','representative'])->group(function () {
 Route::resource('representative', RepresentativeController::class);
 Route::put('/representative/{userId}/change-status', [RepresentativeController::class, 'changeStatus'])->name('representative.changeStatus');
 Route::get('/representativeEntr', [RepresentativeController::class, 'entrepreneur'])->name('representativeEntr');
@@ -84,12 +86,14 @@ Route::put('/requests/{Id}/change-status', [RepresentativeOfferController::class
 });
 
 //Crud of Experience/Formation/Skills
+Route::middleware('auth',)->group(function () {
+
 Route::resource('representativeExperience', RepresentativeExpController::class);
 Route::resource('representativeFormation', RepresentativeForController::class);
 Route::resource('representativeSkill', RepresentativeSkillController::class);
-
+});
 //Entrepreneur Route
-Route::middleware('entrepreneur')->group(function () {
+Route::middleware(['auth','entrepreneur'])->group(function () {
 Route::resource('entrepreneur', EntrepreneurController::class);
 Route::resource('entrepreneurCompany', EntrepreneurComController::class);
 Route::resource('entrepreneurOffer', EntrepreneurOfferController::class);
