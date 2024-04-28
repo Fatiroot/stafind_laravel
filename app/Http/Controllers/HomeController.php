@@ -68,7 +68,7 @@ class HomeController extends Controller
     {
         $company = Company::findOrFail($companyId);
         $employees=User::where('company_id',$company->id)->count();
-        $Alloffers=User::where('company_id',$company->id)->count();
+        $Alloffers=Offer::where('company_id',$company->id)->count();
         $cities = City::all();
         $domains = Domain::all();
         $offers = Offer::where('company_id', $company->id)
@@ -89,7 +89,7 @@ class HomeController extends Controller
         foreach ($offers as $offer) {
             $offerData[] = [
                 'title' => $offer->title,
-                'description' =>  strlen($offer->description) > 50 ? substr($offer->description, 0, 50) . '...' : $offer->description,
+                'description' =>  strlen($offer->description) > 40 ? substr($offer->description, 0, 40) . '...' : $offer->description,
                 'domain' => $offer->domain->name,
                 'company' => $offer->company->name,
                 'city' => $offer->city->name,
@@ -117,7 +117,7 @@ class HomeController extends Controller
         foreach ($offers as $offer) {
             $offerData[] = [
                 'title' => $offer->title,
-                'description' =>  strlen($offer->description) > 50 ? substr($offer->description, 0, 50) . '...' : $offer->description,
+                'description' =>  strlen($offer->description) > 40 ? substr($offer->description, 0, 40) . '...' : $offer->description,
                 'domain' => $offer->domain->name,
                 'company' => $offer->company->name,
                 'city' => $offer->city->name,
@@ -129,5 +129,5 @@ class HomeController extends Controller
         return response()->json($offerData);
     }
 
- 
+
 }

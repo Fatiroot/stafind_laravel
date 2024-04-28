@@ -35,7 +35,7 @@
           </h1>
           <p class="text-muted">{{ $offer->description }}</p>
           <a class="btn btn-tertiary btn-lg btn-block mb-2" href="#choices" role="button">
-            InterShip Summary
+            InternShip Summary
           </a>
           <ul class="list-group list-group-light list-group-small small mt-2">
             <li class="list-group-item d-flex justify-content-between align-items-center">

@@ -36,17 +36,6 @@
                             {{ $request->user->fullname }}
                         </td>
                         <td class="px-6 py-4">
-                            <a href="{{ route('adminUser.show', $request->user->id) }}" class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
-                                <script src="https://cdn.lordicon.com/lordicon.js"></script>
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/vfczflna.json"
-                                    colors="primary:#848484,secondary:#3080e8"
-                                    style="width:20px;height:20px; cursor: pointer;"
-                                >
-                                </lord-icon>
-                            </a>
-                        </td>
-                        <td class="px-6 py-4">
                             <form method="POST" action="{{ route('RequestchangeStatus', $request->id) }}" id="update-offer-form-{{ $request->id }}">
                                 @csrf
                                 @method('PUT')
@@ -60,6 +49,17 @@
                             </form>
 
                            </td>
+                           <td class="px-6 py-4">
+                            <a href="{{ route('showProfile', $request->user->id) }}" class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                                <script src="https://cdn.lordicon.com/lordicon.js"></script>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/vfczflna.json"
+                                    colors="primary:#848484,secondary:#3080e8"
+                                    style="width:20px;height:20px; cursor: pointer;"
+                                >
+                                </lord-icon>
+                            </a>
+                        </td>
                            <td class="px-6 py-4">
                             <!-- Modal toggle -->
                             <button data-modal-target="default-modal-{{ $request->id }}" data-modal-toggle="default-modal-{{ $request->id }}"

@@ -58,7 +58,7 @@
                                 >
                                 </lord-icon>
                                 <div class="mx-2">
-                                    <!-- Update Offer Modal -->
+                                    <!--  Offer Modal -->
                                     <div class="modal fade" id="updateOfferModal{{ $offer->id }}" tabindex="-1" aria-labelledby="updateOfferModal{{ $offer->id }}Label" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -66,7 +66,7 @@
                                                     <h5 class="modal-title" id="updateOfferModal{{ $offer->id }}Label">Offer Description</h5>
                                                     <button type="button" class="btn-close btn-outline-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body">
+                                                <div  class="modal-body" style="max-height: 400px; overflow-y: auto;">
                                                     <!-- Display Offer Description in Modal -->
                                                     <div class="form-group">
                                                         <p>{{ $offer->description }}</p>

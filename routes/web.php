@@ -78,6 +78,7 @@ Route::put('adminOffer/{Id}/change-status', [AdminOfferController::class, 'chang
 //Representative Route
 Route::middleware(['auth','representative'])->group(function () {
 Route::resource('representative', RepresentativeController::class);
+Route::get('representative/showProfile/{userId}', [RepresentativeController::class,'showProfile'])->name('showProfile');
 Route::put('/representative/{userId}/change-status', [RepresentativeController::class, 'changeStatus'])->name('representative.changeStatus');
 Route::get('/representativeEntr', [RepresentativeController::class, 'entrepreneur'])->name('representativeEntr');
 Route::resource('representativeCompany', RepresentativeComController::class);
@@ -99,4 +100,6 @@ Route::resource('entrepreneur', EntrepreneurController::class);
 Route::resource('entrepreneurCompany', EntrepreneurComController::class);
 Route::resource('entrepreneurOffer', EntrepreneurOfferController::class);
 Route::get('/requestsEntr/{offerId}', [EntrepreneurOfferController::class, 'getRequests'])->name('requestsEntr');
+Route::put('/entrerequests/{Id}/change-status', [EntrepreneurOfferController::class, 'changeStatus'])->name('EntRequestchangeStatus');
+
 });

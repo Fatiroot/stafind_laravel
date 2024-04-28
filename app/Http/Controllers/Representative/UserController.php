@@ -116,7 +116,16 @@ class UserController extends Controller
         $user->delete();
         return back()->with('success', 'User deleted successfully.');
     }
+    public function showProfile($userId)
+    {
+        $user = User::findOrFail($userId);
+        $experiences = Experience::where('user_id', $user->id)->get();
+        $allSkills = Skill::all();
+        $user->load('formations');
+        $user->load('skills');
 
+        return view('representative.offer.profile', compact('user', 'experiences', 'allSkills'));
+    }
 
 
 }

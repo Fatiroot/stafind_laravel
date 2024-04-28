@@ -30,7 +30,7 @@ class UserController extends Controller
         ->count();
         return view('entrepreneur.index', compact(['users','offerCount','requestCount']));
     }
-    
+
     public function edit()
     {
         $user = Auth::user();
@@ -41,6 +41,16 @@ class UserController extends Controller
         $user->load('skills');
 
         return view('entrepreneur.update', compact('user', 'experiences', 'allSkills'));
+    }
+    public function show($userId)
+    {
+        $user = User::findOrFail($userId);
+        $experiences = Experience::where('user_id', $user->id)->get();
+        $allSkills = Skill::all();
+        $user->load('formations');
+        $user->load('skills');
+
+        return view('entrepreneur.offer.profile', compact('user', 'experiences', 'allSkills'));
     }
 
     public function update(Request $request,)

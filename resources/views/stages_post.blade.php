@@ -100,7 +100,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $offer->title }}</h5>
                                         <p class="card-text">
-                                            {{ strlen($offer->description) > 50 ? substr($offer->description, 0, 50) . '...' : $offer->description }}
+                                            {{ strlen($offer->description) > 40 ? substr($offer->description, 0, 40) . '...' : $offer->description }}
                                         </p>
                                     </div>
                                     <div class="mx-2">

@@ -6,9 +6,11 @@ use App\Models\City;
 use App\Models\Offer;
 use App\Models\Domain;
 use App\Models\OfferUser;
+use App\Mail\AcceptRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\UpdateOfferRequest;
 
 class OfferController extends Controller
@@ -93,5 +95,17 @@ class OfferController extends Controller
             $query->where('id',$offer->id);
         })->get();
         return view('entrepreneur.offer.requests', compact('requests'));
+    }
+
+    public function changeStatus( $Id)
+    {
+        $request = OfferUser::with('user')->findOrFail($Id);
+
+    $request->update(['status' => 1]);
+
+    $user = $request->user;
+    Mail::to($user->email)->send(new AcceptRequest($request));
+    return redirect()->back()->with('success', 'Status changed successfully');
+
     }
 }

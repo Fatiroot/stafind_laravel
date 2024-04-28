@@ -2,7 +2,7 @@
 @section('content')
 <div class="container my-5">
     @if ($errors->any())
-    <div class="alert alert-danger">
+   <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -125,7 +125,7 @@
                             value="{{ $experience->id }}"> <input type="hidden"
                             name="user_id" value="{{ $user->id }}">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Your Name</label>
+                                <label for="name" class="form-label">Experience Title</label>
                                 <input type="text" class="form-control" id="name" name="name" value="{{ $experience->name }}" required>
                             </div>
                             <div class="mb-3">
@@ -169,7 +169,7 @@
                             @csrf
                             <input type="hidden" name="user_id" value="{{ $user->id }}">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Your Name</label>
+                                <label for="name" class="form-label">Experience Title</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             <div class="mb-3">
