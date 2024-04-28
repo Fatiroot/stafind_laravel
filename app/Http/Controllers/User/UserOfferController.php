@@ -9,6 +9,7 @@ use App\Models\Company;
 use App\Models\OfferUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class UserOfferController extends Controller
@@ -44,6 +45,17 @@ class UserOfferController extends Controller
 
         return response()->json(['applied' => $userApplied]);
     }
+    public function myApplications($userId)
+    {
+        $user = User::findOrFail($userId);
+        $offers = $user->offers()->get();
+        $cities = City::all();
+        $companies = Company::all();
+        $domains = Domain::all();
+
+        return view('myApplications', compact('offers', 'cities', 'domains', 'companies'));
+    }
+
 
 
 }

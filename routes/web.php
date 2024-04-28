@@ -52,6 +52,7 @@ Route::get('companies', [HomeController::class,'allCompanies'])->name('allCompan
 Route::get('/searchByTitle', [HomeController::class, 'searchByTitle'])->name('searchByTitle');
 Route::get('/searchByCity', [HomeController::class, 'searchByCity'])->name('searchByCity');
 Route::resource('UserOffer', UserOfferController::class);
+Route::get('UserOffer{userId}', [UserOfferController::class,'myApplications'])->name('myApplications');
 Route::get('/offer/{id}/check-applied', [UserOfferController::class, 'checkApplied'])->name('offer.check-applied');
 
 

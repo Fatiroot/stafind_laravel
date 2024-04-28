@@ -36,6 +36,7 @@
 
             @auth
             <li class="nav-item"><a href="{{ route('home.edit', Auth::id()) }}" class="nav-link">Profile</a></li>
+            <li class="nav-item"><a href="{{ route('myApplications', Auth::id()) }}" class="nav-link">My Applications</a></li>
         </li>
             <li class="nav-item">
                 <form method="POST" action="{{ route('logout') }}" class="flex items-center">
